@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+    Méditations
+{% endblock title %}
+{% block li_accueil %}
+    <li><a href="{% url "accueil" %}">Accueil</a></li>
+    <li><a href="{% url "apropos" %}">A propos</a></li>
+    <li><a href="{% url "departements" %}">Departements</a></li>
+    <li><a href="{% url "meditations" %}" class="Active">Méditation</a></li>
+    <li><a href="{% url "activites" %}">Activités</a></li>
+    <li><a href="{% url "contact" %}">Contact</a></li>
+{% endblock li_accueil %}
+{% block section %}
+    <div class="div">
+        <h1>Nos Méditations</h1>
+    </div>
+    <div class="div_meditation_intro">
+        <h2>Des <span>méditations</span> pour grandir spirituellement</h2>
+        <p>Retrouvez nos méditations quotidiennes pour approfondir votre vie de foi et votre connexion spirituelle.</p>
+    </div>
+    <div class="meditations-container">
+        {% for meditation in versets %}
+            <div class="meditation-card">
+                <div class="meditation-header">
+                    <h3>{{ meditation.theme }}</h3>
+                    <p class="verset"><strong>Verset:</strong> {{ meditation.verset }}</p>
+                </div>
+                <div class="meditation-content">
+                    <p>{{ meditation.message }}</p>
+                </div>
+            </div>
+        {% empty %}
+            <p>Aucune méditation disponible pour l'instant.</p>
+        {% endfor %}
+    </div>
+{% endblock section %}
+{% block section_info %}
+{% endblock section_info %}
+{% block section_bottom %}
+{% endblock section_bottom %}
+{% block footer %}
+{% endblock footer %}

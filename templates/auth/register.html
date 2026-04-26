@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Connexion
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'style/login.css' %}">
+    <link rel="stylesheet" href="{% static 'style/base.css' %}">
+    <link rel="stylesheet" href="{% static 'style/media.css' %}">
+{% endblock style %}
+{% block js %}
+    <script src="{% static 'js/index.js' %}" defer></script>
+{% endblock js %}
+{% block btns %}
+    <div class="menu">
+        <i class="fa-solid fa-bars" id="menu"></i>
+    </div>
+{% endblock btns %}
+{% block loading %}
+
+{% endblock loading %}
+{% block section %}
+    <section class="form">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Créer</button>
+            <a href="{% url "login" %}">Se connecter</a>
+        </form>
+        
+    </section>
+{% endblock section %}
+
+{% block section_info %}
+
+{% endblock section_info %}
+{% block section_bottom %}
+
+{% endblock section_bottom %}

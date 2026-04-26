@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Connexion
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'style/login.css' %}">
+    <link rel="stylesheet" href="{% static 'style/base.css' %}">
+    <link rel="stylesheet" href="{% static 'style/media.css' %}">
+{% endblock style %}
+{% block js %}
+    <script src="{% static 'js/index.js' %}" defer></script>
+{% endblock js %}
+{% block btns %}
+    <div class="menu">
+        <i class="fa-solid fa-bars" id="menu"></i>
+    </div>
+{% endblock btns %}
+{% block loading %}
+
+{% endblock loading %}
+{% block li_accueil %}
+    <li><a href="">Accueil</a></li>
+    <li><a href="">A propos</a></li>
+    <li><a href="">Departements</a></li>
+    <li><a href="">Méditation</a></li>
+    <li><a href="">Activités</a></li>
+    <li><a href="">Contact</a></li>
+{% endblock li_accueil %}
+{% block section %}
+    <section class="form">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Se connecter</button><br>
+            <p>pas de compte? <span><a href="{% url "register" %}">Créer</a></span></p>
+        </form>
+    </section>
+{% endblock section %}
+
+{% block section_info %}
+
+{% endblock section_info %}
+{% block section_bottom %}
+
+{% endblock section_bottom %}

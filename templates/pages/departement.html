@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}
+    Départements
+{% endblock title %}
+{% block li_accueil %}
+    <li><a href="{% url "accueil" %}">Accueil</a></li>
+    <li><a href="{% url "apropos" %}">A propos</a></li>
+    <li><a href="{% url "departements" %}" class="Active">Departements</a></li>
+    <li><a href="{% url "meditations" %}">Méditation</a></li>
+    <li><a href="{% url "activites" %}">Activités</a></li>
+    <li><a href="{% url "contact" %}">Contact</a></li>
+{% endblock li_accueil %}
+{% block section %}
+    <div class="div">
+        <h1>Nos Départements</h1>
+    </div>
+    <div class="div_act_jeunes">
+        <h2>Les <span>Départements</span> de l'organisation</h2>
+        <p>Découvrez les différents départements qui composent notre organisation et les membres qui les constituent.</p>
+    </div>
+    <div class="departements-container">
+        {% for departement in departements %}
+            <div class="departement-card">
+                <h3>{{ departement.denomination }}</h3>
+                <p>{{ departement.description }}</p>
+                <p><strong>Nombre de membres:</strong> {{ departement.NbrMembre }}</p>
+            </div>
+        {% empty %}
+            <p>Aucun département disponible pour l'instant.</p>
+        {% endfor %}
+    </div>
+
+    <div class="membres-container">
+        <h2>Membres de l'organisation</h2>
+        <div class="membres-grid">
+            {% for membre in membres %}
+                <div class="membre-card">
+                    {% if membre.photo %}
+                        <img src="{{ membre.photo.url }}" alt="{{ membre.nom }}" width="150">
+                    {% endif %}
+                    <h4>{{ membre.prenom }} {{ membre.nom }} {{ membre.postnom }}</h4>
+                    <p><strong>Téléphone:</strong> {{ membre.tel }}</p>
+                </div>
+            {% empty %}
+                <p>Aucun membre disponible.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock section %}
+{% block section_info %}
+{% endblock section_info %}
+{% block section_bottom %}
+{% endblock section_bottom %}
+{% block footer %}
+{% endblock footer %}

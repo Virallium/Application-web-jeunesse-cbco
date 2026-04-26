@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}
+    Activités
+{% endblock title %}
+{% block li_accueil %}
+    <li><a href="{% url "accueil" %}">Accueil</a></li>
+    <li><a href="{% url "apropos" %}">A propos</a></li>
+    <li><a href="{% url "departements" %}" >Departements</a></li>
+    <li><a href="{% url "meditations" %}">Méditation</a></li>
+    <li><a href="{% url "activites" %}" class="Active">Activités</a></li>
+    <li><a href="{% url "contact" %}">Contact</a></li>
+{% endblock li_accueil %}
+{% block section %}
+    <div class="div">
+        <h1>Nos activités</h1>
+    </div>
+    <div class="div_act_jeunes">
+        <h2>Les acyivités de la <span>jeunesse</span></h2>
+        <p>Les activités de la jeunesse sont faites pour apporter un certain seuil de connaissance supplémentaire aux jeunes sur Dieu, la vie chrétienne mais aussi la vie sous ses diverses facettes </p>
+    </div>
+    <div class="activities">
+        {% for activite in activites %}
+            <div class="box">
+                <div class="img">
+                    <img src="{{activite.photo.url}}" alt="activite" width="100%">
+                </div>
+                <div class="descr">
+                    <p>A savoir</p>
+                    <p>{{activite.denomination}}</p>
+                </div>
+                <a href="">Voir plus</a>
+            </div>
+            {% empty %}
+            <p>Aucune actualité n'est disponible pour l'instant, merci de patienter</p>
+        {% endfor %}
+    </div>
+
+
+{% endblock section %}
+{% block section_info %}
+
+{% endblock section_info %}
+{% block section_bottom %}
+
+{% endblock section_bottom %}
+{% block footer %}
+
+{% endblock footer %}

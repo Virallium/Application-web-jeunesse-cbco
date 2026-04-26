@@ -1,0 +1,48 @@
+:root{
+    --descr-color:#353535;
+    --border-rad-circle:50%;
+    --button-border-rad:.8rem;
+    --box-border-rad:1rem;
+    --box-shadow:1px 1px 3px rgba(0,0,0,0.5);
+    --primary-color:#9e8a41;
+    --primary-txt:#fff;
+    --background: 45 30% 96%;
+    --primary-foreground: 0 0% 100%;
+    --secondary-foreground: 220 15% 15%;
+    --accent: 35 50% 75%;
+    --accent-foreground: 220 15% 15%;
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --scrollTrack: #E8E8E8;
+    --scrollThumb: #A1A1A1;
+    --buttonHover: #E0E0E0;
+}
+@media(max-width:1000px){
+    header{
+        align-items: start;
+    }
+    .header_active{
+        height:400px;
+    }
+    .ul_active{
+        display:block;
+        flex-direction: column;
+        position: relative;
+        bottom:-8rem;
+    }
+    ul{
+        display: none;
+        bottom:-15rem;
+        transition: all .9s ease;
+        -webkit-transition: all .9s ease;
+        -moz-transition: all .9s ease;
+        -ms-transition: all .9s ease;
+        -o-transition: all .9s ease;    
+    }
+    ul li{
+        margin:1rem 0 0 0;
+    }
+    .menu{
+        display:block;
+    }
+}

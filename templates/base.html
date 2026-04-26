@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="La jeunesse possède en elle une force telle un flambeau brûle de toute son intensité">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Cénacle">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="geo.region" content="CD-KN">
+    <meta name="geo.placename" content="Kinshasa">
+    <meta property="og:title" content="Cénacle | département, formation, chrétienne, sessions thématiques, étude de la bible, enseignements de jésus-christ">
+    <meta property="og:description" content="Le Département du cénacle est un département de formation chretienne proposant des sessions thématiques basées sur l'étude de la bible et des enseignements de Jésus-Christ.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cénacle | département, formation, chrétienne, sessions thématiques, étude de la bible, enseignements de jésus-christ">
+    <meta name="twitter:description" content="Le Département du cénacle est un département de formation chretienne proposant des sessions thématiques basées sur l'étude de la bible et des enseignements de Jésus-Christ.">
+    <title>{% block title %}Jeunesse Cbco{% endblock title %}</title>
+    {% block style %}
+        <link rel="stylesheet" href="{% static 'style/style.css' %}">
+        <link rel="stylesheet" href="{% static 'style/base.css' %}">
+        <link rel="stylesheet" href="{% static 'style/media.css' %}">
+        <link rel="stylesheet" href="{% static 'style/pages.css' %}">
+    {% endblock style %}
+    {% block js %}
+        <script src="{% static 'js/index.js' %}" defer></script>
+        <script src="{% static 'js/style.js' %}" defer></script>
+    {% endblock js %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="{% static 'img_contents/logoCbco.jpg' %}" type="image/icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-element-bundle.min.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "Pourquoi avoir devenir disciple de jesus christ est-il important?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Devenir disciple de Jésus-Christ est important pour plusieurs raisons. Tout d'abord, cela permet de suivre les enseignements de Jésus et de vivre selon ses principes, ce qui peut apporter une paix intérieure et une direction dans la vie. De plus, être disciple de Jésus signifie faire partie d'une communauté de croyants qui se soutiennent mutuellement dans leur foi. Enfin, cela offre l'espoir de la vie éternelle et la promesse d'une relation personnelle avec Dieu."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels sont les tarifs pour les formations proposées par le département du cénacle?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "il n'ya aucun tarif pour les formations proposées par le département du cénacle, elles sont gratuites et ouvertes à tous ceux qui souhaitent approfondir leur foi et leur connaissance de la Bible. Le département du cénacle vise à offrir des enseignements accessibles à tous, sans distinction de statut social ou économique."
+            }
+          }
+        ]
+      }
+    </script>
+</head>
+<body>
+    {% block loading %}
+        <div class="loading">
+            <img src="{% static 'img_contents/logoCbco.jpg' %}" alt="logo">
+            <p>Cbco <span>francophone</span></p>
+        </div>
+    {% endblock loading %}
+    <header>
+        <div class="logo">
+            <div class="img">
+                <img src="{% static 'img_contents/logoCbco.jpg' %}" alt="logo" width="40px">
+            </div>
+            <div class="bottom">
+                <p>Jeunesse Cbco</p>
+            <small>Cbco Francophone <br>Kintambo</small>
+            </div>
+            
+        </div>
+        <ul>
+            {% block li_accueil %}
+                <li><a href="{% url "accueil" %}" class="Active">Accueil</a></li>
+                <li><a href="{% url "apropos" %}">A propos</a></li>
+                <li><a href="{% url "departements" %}">Departements</a></li>
+                <li><a href="{% url "meditations" %}">Méditation</a></li>
+                <li><a href="{% url "activites" %}">Activités</a></li>
+                <li><a href="{% url "contact" %}">Contact</a></li>
+            {% endblock li_accueil %}
+        </ul>
+        <div class="btns">
+            {% block btns %}
+                <a href="{% url "login" %}" class="button">Voir</a>
+                <a href="{% url "login" %}" class="button">Se connecter</a>
+                <div class="menu">
+                    <i class="fa-solid fa-bars" id="menu"></i>
+                </div>
+            {% endblock btns %}
+        </div>
+    </header>
+    {% block section %}
+    <section class="header_content">
+            <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30" effect="fade"
+                navigation="true" autoplay=true>
+                <swiper-slide>
+                <img src="https://scontent.fbzv3-2.fna.fbcdn.net/v/t39.30808-6/500269878_1101352462036208_4023393625541613339_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH8NeBaVqPTwBjdKeD3Z7hFziovTHZ-A5LOKi9Mdn4DkmlTxsQE5wkuZ0kShEqYyD9ZUv5ZOh1ozZyNOV4iiIXT&_nc_ohc=45hp1zW0l8YQ7kNvwHoX_on&_nc_oc=Ado3jK1VSsiHaFH3Tg1NW6BtOrJFAFwQMhiHjayxDrGWNGgMTXYn1yQoUseS5rgByCcjwPX9ivkqOzl7BNIcGgfU&_nc_zt=23&_nc_ht=scontent.fbzv3-2.fna&_nc_gid=MfVnf4JnAXHYp5GHTHodNg&_nc_ss=7b2a8&oh=00_Af0DX88VWEk84Y3R4DL0yLYJJQsEUOWs8KLIfP7FucYACA&oe=69F43598" />
+                </swiper-slide>
+                <swiper-slide>
+                <img src="https://scontent.fbzv3-2.fna.fbcdn.net/v/t39.30808-6/499877889_1101352778702843_5866298264864978221_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH90rVI9_hyfBGM-vbDKx_r2NI_J_C7aUvY0j8n8LtpS9euZeZ7oCo-lzxY1khGuJI_nwyaliDlGpcTNUHTChgf&_nc_ohc=6r5TX92B2ZUQ7kNvwFeolKW&_nc_oc=AdpX6tYw3u8EP9PVMqFG4zSUHnPtfoJqlpT4EJ7Ka26qpnb-CXqLvuLHlytne8H7Q4tM5b7axRAOuu1i2FpcsRu2&_nc_zt=23&_nc_ht=scontent.fbzv3-2.fna&_nc_gid=A5tvpTTIM9DxISWxGQbpOA&_nc_ss=7b2a8&oh=00_Af32qBeVlOqti2CDsp4ZF5vcHUBifdYbjVhtsmS9fmXa4A&oe=69F4275E" />
+                </swiper-slide>
+                <swiper-slide>
+                <img src="https://scontent.fbzv3-2.fna.fbcdn.net/v/t39.30808-6/500000250_1101352892036165_5039705924453005312_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEeSZx2FC64L94Hp6xt0tB0_ilZoy2y8SX-KVmjLbLxJWjXdbIbj4l_uyoB-jFZ9t8Xj5n4tX1XhZ3szZNSY3vL&_nc_ohc=5E0zn9Nbs0QQ7kNvwHYZpPC&_nc_oc=AdpebveF9fEpXpUd-ydE_jNLf-Pb7TgTSZkTA1ZPEe9tHta4-8AB9Ho-pxRvwIeWXDMIvO09Cxg1Qy144kZmF0Qp&_nc_zt=23&_nc_ht=scontent.fbzv3-2.fna&_nc_gid=AqrsKv4QF49AfRULPt7-EA&_nc_ss=7b2a8&oh=00_Af12N247D0z3NVoXc8l3rWNVqC1oEsX4bvXIzPTumWz30g&oe=69F40DB2" />
+                </swiper-slide>
+                <swiper-slide>
+                <img src="https://scontent.fbzv3-2.fna.fbcdn.net/v/t39.30808-6/500199776_1101352752036179_4863642852080297111_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFkOh1HtE5fEhRGyEco2ribAEYkZDW9RDcARiRkNb1EN7xVn4txov6GwSTvbOyTBPambCB4-cZEbeYUp7t4X7VC&_nc_ohc=cwT3Rey2ktUQ7kNvwGzo1Bq&_nc_oc=AdoT8tqzOfgTY32fEGOEqX8o-KyN138iam4ogW9uBu7dcbfxrjzKMnvBdFVnFblMFebfwgDT79rA0Al2g6o7AfDt&_nc_zt=23&_nc_ht=scontent.fbzv3-2.fna&_nc_gid=g5svHxGdocYgY87-ZOQ08A&_nc_ss=7b2a8&oh=00_Af2eZ9TssXeEDHOnoS9eHsS1eZMY6IlJm88yg4UoGoz4Dg&oe=69F41462" />
+                </swiper-slide>
+            </swiper-container>
+            <div class="notice">
+                <p>Sauvé pour servir, nous sommes une générations appélée à faire une grande différence dans l'oeuvre de Dieu. </p>
+                <small>Département de la jeunesse</small>
+            </div>
+            <div class="links">
+                <a href=""> <span><i class="fa-solid fa-church"></i></span>Cultes des jeunes</a>
+                <a href=""><span><i class="fa-solid fa-people-arrows"></i></span>Activites</a>
+                <a href="">Autres</a>
+            </div>
+            <div class="presentation">
+                <h1>Bienvenu au sein de la communauté dédiée aux <span>jeunes</span></h1>
+                <p>
+                    Nous vous souhaitons la bienvenue sur le site de l'Église Francophone CBCO Kintambo principalement dédié au département de la jeunesse.
+                    <br>
+                    <span>Espérant que ces quelques pages vous feront plus connaître de nous, notre prière est qu'elles vous aident à vous rapprocher du Seigneur Jésus.</span><br>
+                    <span><strong>Bonne visite et que Le Seigneur vous bénisse !</strong></span>
+                </p>
+                <a href="">En savoir plus <span><i class="fa-solid fa-people-arrows"></i></span></a>
+            </div>
+        </section>
+        {% endblock section %}
+    {% block section_info %}
+        <section class="infos">
+            <h1>Découvrez les actualités ainsi que toutes les informations relative à la jeunesse de l'église Cbco Francophone.</h1>
+            <div class="actus">
+                <h2>Actualités</h2>
+                <div class="actus_contents">
+                    {% for actu in actus %}
+                        <div class="box">
+                            <div class="img">
+                                <img src="{{actu.photo.url}}" alt="actus" width="100%">
+                            </div>
+                            <div class="descr">
+                                <p>A savoir</p>
+                                <p>{{actu.denomination}}</p>
+                                <a href="{% url "activites" %}">Voir plus <span><i class="fa-solid fa-people-arrows"></i></span></a>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <p>Aucune actualité n'est disponible pour l'instant, merci de patienter</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="versets">
+                <h2>Méditation Biblique</h2>
+                <div class="verset_contents">
+                    <div class="box">
+                        <i class="fa-solid fa-book-bible"></i>
+                        {% for verset in versets %}
+                        <div class="right">
+                            <h3>Thème <span>{{verset.theme}}</span></h3>
+                            <p>Verset: <span>{{verset.verset}}</span></p>
+                            <div class="descr">
+                                {{verset.message}}
+                            </div>
+                        </div>
+                        {% empty %}
+                        <p>Aucune méditaion n'a été ajoutée</p>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endblock section_info %}
+    {% block section_bottom %}
+        <section class="localisation">
+            <h2>Où sommes<span>nous?</span></h2>
+            <div class="contents">
+                <div class="infos">
+                    <div class="adresses">
+                        <i class="fa-solid fa-magnifying-glass-location"></i>
+                        <div class="txt">
+                            <h3>Adresse</h3>
+                            <p>Avenue Mai-Ndombe n°38 <br><span>Commune de Kintambote</span><br><span>Kinshasa, République Démocratique du Congo</span></p>
+                        </div>
+                    </div>
+                    <div class="cultes">
+                        <p>Culte des jeunes:16h30-18h30</p>
+                    </div>
+                    <a href="{% url "activites" %}">Voir plus</a>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.366660512689!2d15.268076999999996!3d-4.342093999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a6a3175340e0255%3A0xc56c6537ff303b3e!2sEglise%20Francophone%20CBCO%20Kintambo!5e0!3m2!1sen!2scd!4v1777231578964!5m2!1sen!2scd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section> 
+    {% endblock section_bottom %}
+    {% block footer %}
+        <footer>
+            <div class="footer_content">
+                <div class="title">
+                    <div class="img">
+                        <img src="{% static 'img_contents/logoCbco.jpg' %}" alt="logo" width="40px">
+                        <div class="img_txt">
+                            <h3>Jeunesse Cbco francophone de Kintambo</h3>
+                            <p>Communauté Baptiste du Congo</p>
+                        </div>
+                    </div>
+                    <p>"Nous confessons Jésus-Christ comme Seigneur et Sauveur du monde"</p>
+                    <div class="reseaux">
+                        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href=""><i class="fa-brands fa-youtube"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact">
+                    <h2>Contact</h2>
+                    <div class="content">
+                        <i class="fa-solid fa-location-pin"></i>
+                        <p>Avenue Mai-Ndombe n°38, Kintambo, Kinshasa, RDC</p>
+                    </div>
+                    <div class="content">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="">contact@francophonecbco.org</a>
+                    </div>
+                </div>
+                <div class="rapid_links">
+                    <h2>Liens rapides</h2>
+                    <div class="rapidlink_a">
+                        <a href="">Nos Cultes</a>   
+                        <a href="">Activités</a>    
+                        <a href="">Départements</a> 
+                    </div>
+                </div>
+            </div>
+            <p>&copy; Eglise Francophone de Kintambo -CBCO. Tous droits reservés.</p>
+        </footer>
+    {% endblock footer %}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-element-bundle.min.js"></script>
+</body>
+</html>

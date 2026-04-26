@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}
+    À Propos
+{% endblock title %}
+{% block li_accueil %}
+    <li><a href="{% url "accueil" %}">Accueil</a></li>
+    <li><a href="{% url "apropos" %}" class="Active">A propos</a></li>
+    <li><a href="{% url "departements" %}" >Departements</a></li>
+    <li><a href="{% url "meditations" %}">Méditation</a></li>
+    <li><a href="{% url "activites" %}" >Activités</a></li>
+    <li><a href="{% url "contact" %}">Contact</a></li>
+{% endblock li_accueil %}
+{% block section %}
+    <div class="div">
+        <h1>À Propos de Nous</h1>
+    </div>
+    <div class="about-container">
+        <h2>Qui sommes-nous ?</h2>
+        <p>Notre organisation est dédiée à l'accompagnement et à la formation des jeunes dans un environnement de foi et d'épanouissement personnel.</p>
+        
+        <h3>Notre Mission</h3>
+        <p>Nous travaillons pour créer un espace où les jeunes peuvent grandir spirituellement, développer leurs compétences et contribuer positivement à la société.</p>
+        
+        <h3>Nos Valeurs</h3>
+        <ul>
+            <li>L'Excellence</li>
+            <li>L'Intégrité</li>
+            <li>Le Service</li>
+            <li>La Communauté</li>
+            <li>La Croissance Spirituelle</li>
+        </ul>
+    </div>
+{% endblock section %}
+{% block section_info %}
+{% endblock section_info %}
+{% block section_bottom %}
+{% endblock section_bottom %}
+{% block footer %}
+{% endblock footer %}

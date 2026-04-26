@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd" >
+    <url>
+        <loc>https://JeunesseCbco.com</loc>
+        <priority>1.0</priority>
+        <frequence>monthly</frequence>
+    </url>
+    <!-- <url>
+        <loc>https://</loc>
+    </url> -->
+</urset>
