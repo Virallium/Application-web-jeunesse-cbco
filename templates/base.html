@@ -144,7 +144,9 @@
                     {% for actu in actus %}
                         <div class="box">
                             <div class="img">
-                                <img src="{{actu.photo.url}}" alt="actus" width="100%">
+                                {% if  actus.photo  %}
+                                    <img src="{{actu.photo.url}}" alt="actus" width="100%">
+                                {% endif %} 
                             </div>
                             <div class="descr">
                                 <p>A savoir</p>
