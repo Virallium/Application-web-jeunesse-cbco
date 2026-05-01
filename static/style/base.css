@@ -280,3 +280,49 @@ ul li a:hover a::before{
     margin:8rem 0 0 0;
     padding: 1rem;
 }
+footer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:1rem;
+    flex-direction: column;
+    text-align:center;
+    padding:1rem;
+    background:var(--primary-color);
+    width:100%;
+}
+.footer_content{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap:2rem;
+    place-items:center;
+    width:100%;
+}
+.footer_content .title .img{
+    display:flex;
+    align-items:center;
+    text-align:start;
+    gap:1rem;
+} 
+.footer_content .title .img img{
+    border-radius:var(--border-rad-circle);
+    -webkit-border-radius:var(--border-rad-circle);
+    -moz-border-radius:var(--border-rad-circle);
+    -ms-border-radius:var(--border-rad-circle);
+    -o-border-radius:var(--border-rad-circle);
+}
+.rapidlink_a{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    gap:1rem;
+    flex-direction: column;
+}
+.rapidlink_a a:hover{
+    text-decoration:underline;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}

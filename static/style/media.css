@@ -46,3 +46,12 @@
         display:block;
     }
 }
+@media(max-width:475px){
+    .logo .bottom{
+        display:none;
+    }
+    .footer_content .title .img{
+        flex-direction:column;
+        text-align:center;
+    }
+}

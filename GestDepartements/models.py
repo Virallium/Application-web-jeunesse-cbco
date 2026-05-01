@@ -72,6 +72,8 @@ class meditation(models.Model):
     theme=models.CharField(max_length=25, verbose_name="Theme méditation")
     verset=models.CharField(max_length=25, verbose_name="verset")
     message=models.TextField(verbose_name="message")
+    def __str__(self):
+        return self.theme
 
 
     

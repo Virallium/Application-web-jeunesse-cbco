@@ -18,6 +18,7 @@
     <meta name="twitter:title" content="Cénacle | département, formation, chrétienne, sessions thématiques, étude de la bible, enseignements de jésus-christ">
     <meta name="twitter:description" content="Le Département du cénacle est un département de formation chretienne proposant des sessions thématiques basées sur l'étude de la bible et des enseignements de Jésus-Christ.">
     <title>{% block title %}Jeunesse Cbco{% endblock title %}</title>
+    <meta name="google-site-verification" content="KAAtzTsST96DuiaYU0Z0zNaLNhqwHdkz2AIH4kQuilo" />
     {% block style %}
         <link rel="stylesheet" href="{% static 'style/style.css' %}">
         <link rel="stylesheet" href="{% static 'style/base.css' %}">
@@ -73,7 +74,7 @@
             </div>
             <div class="bottom">
                 <p>Jeunesse Cbco</p>
-            <small>Cbco Francophone <br>Kintambo</small>
+                <small>Cbco Francophone <br>Kintambo</small>
             </div>
             
         </div>
@@ -89,7 +90,7 @@
         </ul>
         <div class="btns">
             {% block btns %}
-                <a href="{% url "login" %}" class="button">Voir</a>
+                <div class="button"></div>
                 <a href="{% url "login" %}" class="button">Se connecter</a>
                 <div class="menu">
                     <i class="fa-solid fa-bars" id="menu"></i>
@@ -160,21 +161,23 @@
             <div class="versets">
                 <h2>Méditation Biblique</h2>
                 <div class="verset_contents">
+                    {% for verset in versets %}
                     <div class="box">
-                        <i class="fa-solid fa-book-bible"></i>
-                        {% for verset in versets %}
-                        <div class="right">
-                            <h3>Thème <span>{{verset.theme}}</span></h3>
-                            <p>Verset: <span>{{verset.verset}}</span></p>
-                            <div class="descr">
-                                {{verset.message}}
+                        <div class="box_mini">
+                            <i class="fa-solid fa-book-bible"></i>
+                            <div class="right">
+                                <h3>Thème <span>{{verset.theme}}</span></h3>
+                                <p>Verset: <span>{{verset.verset}}</span></p>
+                                <div class="descr">
+                                    {{verset.message}}
+                                </div>
                             </div>
                         </div>
                         {% empty %}
                         <p>Aucune méditaion n'a été ajoutée</p>
                         {% endfor %}
-                        
                     </div>
+                    <a href="{% url "meditations" %}">voir plus</a>
                 </div>
             </div>
         </section>

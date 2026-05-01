@@ -8,4 +8,5 @@ admin.site.register(Intervenant)
 admin.site.register(Intervention)
 admin.site.register(Participation)
 admin.site.register(Evolution)
+admin.site.register(meditation)
 # Register your models here.
