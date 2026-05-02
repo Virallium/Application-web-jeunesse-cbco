@@ -231,11 +231,9 @@ swiper-slide img{
     -ms-border-radius: var(--box-border-rad);
     -o-border-radius: var(--box-border-rad);
     overflow: hidden;
-    padding: 0 0 2rem 0;
     box-shadow: var(--box-shadow);
     cursor: pointer;
     background: transparent;
-    width: 100%;
 }
 .actus_contents .box .img{
     overflow: hidden;
