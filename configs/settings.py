@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Authentification',
     'GestDepartements',
-    'gestJeunesseCbco'
+    'django.contrib.sitemaps',
+    'django.contrib.sites'
 ]
 
 MIDDLEWARE = [
