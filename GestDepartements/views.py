@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Activites, Categorie, Departement, Evolution, Intervenant, Intervention, Membres,Participation, meditation
 def Accueil(request):
-    activites=Activites.objects.all()
+    activites=Activites.objects.all()[:10]
     versets=meditation.objects.all()[:2]
     return render(request, 'pages/index.html', {
         'actus':activites,

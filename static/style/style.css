@@ -37,7 +37,7 @@ body{
     padding: 1rem;
 }
 .mySwiper{
-    height: 500px;
+    height: 600px;
     width: 100%;
     border-radius: var(--box-border-rad);
     -webkit-border-radius: var(--box-border-rad);
@@ -48,11 +48,11 @@ body{
 }
 swiper-slide img{
     width:100%;
-    height:100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    aspect-ratio: 4/4;
+    display: block;
 }
 .header_content .links{
     display: flex;
@@ -222,7 +222,7 @@ swiper-slide img{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     gap: 1rem;
-    width: 100%;
+    width: 100vw;
     height: 100%;
 }
 .actus_contents .box{
