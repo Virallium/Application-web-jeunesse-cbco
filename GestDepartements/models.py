@@ -20,7 +20,7 @@ class Membres(models.Model):
 
     def get_absolute_url(self):
         # Très important pour le sitemap Google
-        return reverse('Membres', kwargs={'slug': self.slug})
+        return reverse('liste_Membres', kwargs={'slug': self.slug})
 
 class Departement(models.Model):
     idDepart=models.AutoField(primary_key=True)
@@ -38,7 +38,7 @@ class Departement(models.Model):
 
     def get_absolute_url(self):
         # Très important pour le sitemap Google
-        return reverse('departements', kwargs={'slug': self.slug})
+        return reverse('liste_departements', kwargs={'slug': self.slug})
 
 
 
@@ -57,7 +57,7 @@ class Activites(models.Model):
 
     def get_absolute_url(self):
         # Très important pour le sitemap Google
-        return reverse('activites', kwargs={'slug': self.slug})
+        return reverse('liste_activites', kwargs={'slug': self.slug})
 
 class Categorie(models.Model):
     idCatg=models.AutoField(primary_key=True)
@@ -107,7 +107,7 @@ class Intervention(models.Model):
 
     def get_absolute_url(self):
         # Très important pour le sitemap Google
-        return reverse('Interventions', kwargs={'slug': self.slug})
+        return reverse('liste_Interventions', kwargs={'slug': self.slug})
 
 class meditation(models.Model):
     theme=models.CharField(max_length=25, verbose_name="Theme méditation")
@@ -124,7 +124,7 @@ class meditation(models.Model):
 
     def get_absolute_url(self):
         # Très important pour le sitemap Google
-        return reverse('meditations', kwargs={'slug': self.slug})
+        return reverse('liste_meditations', kwargs={'slug': self.slug})
 
 
 
