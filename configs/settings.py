@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Authentification',
     'GestDepartements',
+    'django.contrib.sites',
     'django.contrib.sitemaps',
-    'django.contrib.sites'
 ]
 
 MIDDLEWARE = [
@@ -138,3 +138,4 @@ MEDIA_URL = '/media/'
 
 # Le chemin physique sur ton ordinateur vers le dossier qui stockera les images
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+SITE_ID = 1

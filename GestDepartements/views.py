@@ -11,9 +11,6 @@ def Accueil(request):
 def Apropos(request):
     return render(request,'pages/apropos.html')
 
-def Departements(request):
-    return render(request, 'pages/departement.html')
-
 def meditations(request):
     return render(request,'pages/meditation.html')
 
@@ -35,3 +32,10 @@ def departements(request):
     
 def Contact(request):
     return render(request, 'pages/contact.html')
+
+def Members(request):
+    return render(request,'pages/Membres.html')
+
+def Interventions(request):
+    return render(request,'pages/Interventions.html')
+

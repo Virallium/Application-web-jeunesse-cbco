@@ -9,6 +9,7 @@ class Membres(models.Model):
     postnom=models.CharField( max_length=25, verbose_name="PostNom Membre", null=True)
     photo=models.ImageField( upload_to="photos/Membres/", height_field=None, width_field=None, max_length=None, null=True)
     tel=models.CharField( max_length=13, verbose_name="téléphone", null=True)
+    slug = models.SlugField(max_length=100, unique=True, blank=True, null=True)
     def __str__(self):
         return f"{self.nom}--{self.postnom}--{self.tel}"
 
@@ -19,13 +20,14 @@ class Membres(models.Model):
 
     def get_absolute_url(self):
         # Très important pour le sitemap Google
-        return reverse('Membres_detail', kwargs={'slug': self.slug})
+        return reverse('Membres', kwargs={'slug': self.slug})
 
 class Departement(models.Model):
     idDepart=models.AutoField(primary_key=True)
     denomination=models.CharField(max_length=20, verbose_name="Denomination Departement")
     description=models.CharField(max_length=25, verbose_name="Description Departement" )
     NbrMembre=models.IntegerField(verbose_name="Nombre de Membre")
+    slug = models.SlugField(max_length=100, unique=True, blank=True, null=True)
     def __str__(self):
         return self.denomination
     
@@ -36,7 +38,7 @@ class Departement(models.Model):
 
     def get_absolute_url(self):
         # Très important pour le sitemap Google
-        return reverse('Departement_detail', kwargs={'slug': self.slug})
+        return reverse('departements', kwargs={'slug': self.slug})
 
 
 
@@ -44,6 +46,7 @@ class Activites(models.Model):
     IdAct=models.AutoField(primary_key=True)
     denomination=models.CharField(verbose_name="Dénomination Activité", max_length=50)
     photo=models.ImageField(upload_to="photos/Activites", height_field=None, width_field=None, max_length=None)
+    slug = models.SlugField(max_length=100, unique=True, blank=True, null=True)
     def __str__(self):
         return self.denomination
     
@@ -54,7 +57,7 @@ class Activites(models.Model):
 
     def get_absolute_url(self):
         # Très important pour le sitemap Google
-        return reverse('Activités_detail', kwargs={'slug': self.slug})
+        return reverse('activites', kwargs={'slug': self.slug})
 
 class Categorie(models.Model):
     idCatg=models.AutoField(primary_key=True)
@@ -93,6 +96,7 @@ class Intervention(models.Model):
     date_Intervention=models.DateField(auto_now=True)
     idAct=models.ForeignKey(Activites, verbose_name="Id Intervenant", on_delete=models.CASCADE)
     idInter=models.ForeignKey(Intervenant, verbose_name="Id intervenant", on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=100, unique=True, blank=True, null=True)
     def __str__(self):
         return self.date_Intervention
     
@@ -103,12 +107,13 @@ class Intervention(models.Model):
 
     def get_absolute_url(self):
         # Très important pour le sitemap Google
-        return reverse('Interventions_detail', kwargs={'slug': self.slug})
+        return reverse('Interventions', kwargs={'slug': self.slug})
 
 class meditation(models.Model):
     theme=models.CharField(max_length=25, verbose_name="Theme méditation")
     verset=models.CharField(max_length=25, verbose_name="verset")
     message=models.TextField(verbose_name="message")
+    slug = models.SlugField(max_length=100, unique=True, blank=True, null=True)
     def __str__(self):
         return self.theme
     
@@ -119,7 +124,7 @@ class meditation(models.Model):
 
     def get_absolute_url(self):
         # Très important pour le sitemap Google
-        return reverse('meditation_detail', kwargs={'slug': self.slug})
+        return reverse('meditations', kwargs={'slug': self.slug})
 
 
 

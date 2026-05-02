@@ -34,7 +34,7 @@ urlpatterns = [
     path('', include('Authentification.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, 
          name='django.contrib.sitemaps.views.sitemap'),
-    path('', include('ton_app.urls')),
+    path('', include('GestDepartements.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
