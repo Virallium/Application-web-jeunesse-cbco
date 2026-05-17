@@ -1,14 +1,20 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
     Départements
 {% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'style/departement.css' %}">
+    <link rel="stylesheet" href="{% static 'style/media.css' %}">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <link rel="stylesheet" href="{% static 'style/base.css' %}">
+{% endblock style %}
 {% block li_accueil %}
     <li><a href="{% url "accueil" %}">Accueil</a></li>
     <li><a href="{% url "apropos" %}">A propos</a></li>
     <li><a href="{% url "departements" %}" class="Active">Departements</a></li>
     <li><a href="{% url "meditations" %}">Méditation</a></li>
     <li><a href="{% url "activites" %}">Activités</a></li>
-    <li><a href="{% url "contact" %}">Contact</a></li>
 {% endblock li_accueil %}
 {% block section %}
     <div class="div">
@@ -51,5 +57,3 @@
 {% endblock section_info %}
 {% block section_bottom %}
 {% endblock section_bottom %}
-{% block footer %}
-{% endblock footer %}

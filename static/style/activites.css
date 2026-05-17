@@ -1,0 +1,151 @@
+:root {
+    /* Palette de couleurs basée sur ton or/ocre */
+    --primary: #9e8a41;
+    --primary-dark: #7d6d33;
+    --bg-page: hsl(45, 30%, 96%);
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    
+    /* System & Shadows */
+    --radius-btn: 12px;
+    --radius-box: 16px;
+    --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    overflow-x: hidden;
+    width: 100%;
+}
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+.div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    margin: 6rem auto auto;
+}
+.div h1{
+    letter-spacing: 4px;
+    position: relative;
+}
+.div h1::before{
+    content: '';
+    position: absolute;
+    right: -2rem;
+    width: 3px;
+    height: 100%;
+    border-radius: var(--radius-box);
+    -webkit-border-radius: var(--radius-box);
+    -moz-border-radius: var(--radius-box);
+    -ms-border-radius: var(--radius-box);
+    -o-border-radius: var(--radius-box);
+    background: var(--primary);
+}
+.div_act_jeunes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+    padding: 2rem 1rem;
+}
+.div_act_jeunes h2,.div_act_jeunes p{
+    text-align: center;
+}
+.activities{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    place-items: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+.activities .box{
+    background: var(--bg-card);
+    border-radius: var(--radius-box);
+    -webkit-border-radius: var(--radius-box);
+    -moz-border-radius: var(--radius-box);
+    -ms-border-radius: var(--radius-box);
+    -o-border-radius: var(--radius-box);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+}
+.activities .box:hover{
+    box-shadow: var(--shadow-hover);
+}
+
+.activities .box .img{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+.activities .box .img img{
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+.activities .box:hover img{
+    transition: all .4s ease;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+}
+.voirplus{
+    background: transparent;
+    border: 3px solid var(--gold);
+    border-radius: var(--button-border-rad);
+    -webkit-border-radius: var(--button-border-rad);
+    -moz-border-radius: var(--button-border-rad);
+    -ms-border-radius: var(--button-border-rad);
+    -o-border-radius: var(--button-border-rad);
+    padding: .4rem;
+    width: fit-content;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+.voirplus:hover{
+    color: var(--buttonHover);
+    background: var(--gold);
+    transition: .4s ease;
+    -webkit-transition: .4s ease;
+    -moz-transition: .4s ease;
+    -ms-transition: .4s ease;
+    -o-transition: .4s ease;
+}
+.desr{
+    padding: 0 1rem 0 0;
+}
+#descr{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 1rem;
+}

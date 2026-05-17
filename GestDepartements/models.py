@@ -94,11 +94,11 @@ class Intervenant(models.Model):
     
 class Intervention(models.Model):
     date_Intervention=models.DateField(auto_now=True)
-    idAct=models.ForeignKey(Activites, verbose_name="Id Intervenant", on_delete=models.CASCADE)
+    idAct=models.ForeignKey(Activites, verbose_name="Id Activité", on_delete=models.CASCADE)
     idInter=models.ForeignKey(Intervenant, verbose_name="Id intervenant", on_delete=models.CASCADE)
     slug = models.SlugField(max_length=100, unique=True, blank=True, null=True)
     def __str__(self):
-        return self.date_Intervention
+        return f"Intervention de {self.idInter} le {self.date_Intervention}"
     
     def save(self, *args, **kwargs):
         if not self.slug:

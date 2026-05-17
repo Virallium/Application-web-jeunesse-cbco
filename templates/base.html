@@ -23,7 +23,6 @@
         <link rel="stylesheet" href="{% static 'style/style.css' %}">
         <link rel="stylesheet" href="{% static 'style/base.css' %}">
         <link rel="stylesheet" href="{% static 'style/media.css' %}">
-        <link rel="stylesheet" href="{% static 'style/pages.css' %}">
     {% endblock style %}
     {% block js %}
         <script src="{% static 'js/index.js' %}" defer></script>
@@ -86,12 +85,14 @@
                 <li><a href="{% url "departements" %}">Departements</a></li>
                 <li><a href="{% url "meditations" %}">Méditation</a></li>
                 <li><a href="{% url "activites" %}">Activités</a></li>
-                <li><a href="{% url "contact" %}">Contact</a></li>
             {% endblock li_accueil %}
+            <form action="{% url "logout" %}" method="post">
+                {% csrf_token %}
+                <button class="button">Déconnexion</button>
+            </form>
         </ul>
         <div class="btns">
             {% block btns %}
-                <a href="{% url "login" %}" class="button">Se connecter</a>
                 <div class="menu">
                     <i class="fa-solid fa-bars" id="menu"></i>
                 </div>
@@ -166,16 +167,18 @@
             <div class="actus">
                 <h2>Actualités</h2>
                 <div class="actus_contents">
-                    {% for actu in actus %}
+                    {% for activite in actus %}
                         <div class="box" data-aos="fade-up"
                         data-aos-duration="3000">
-                            <div class="img">
-                                <img src="{{actu.photo.url}}" alt="actus" width="100%">
-                            </div>
+                            {% if activite.photo %}
+                                    <div class="img">
+                                        <img src="{{activite.photo.url}}" alt="actus" width="100%">
+                                    </div>
+                            {% endif %}
                             <div class="descr">
                                 <p>A savoir</p>
-                                <p>{{actu.denomination}}</p>
-                                <a href="{% url "activites" %}">Voir plus <span><i class="fa-solid fa-people-arrows"></i></span></a>
+                                <p>{{activite.denomination}}</p>
+                                <a href="{% url "detail_activites" activite.IdAct%}" class="voirplus">Voir plus <span><i class="fa-solid fa-people-arrows"></i></span></a>
                             </div>
                         </div>
                         {% empty %}
@@ -202,7 +205,7 @@
                         <p>Aucune méditaion n'a été ajoutée</p>
                         {% endfor %}
                     </div>
-                    <a href="{% url "meditations" %}">voir plus</a>
+                    <a href="{% url "meditations" %}" class="voirplus">voir plus</a>
                 </div>
             </div>
         </section>
@@ -213,7 +216,7 @@
             <div class="contents">
                 <div class="infos">
                     <div class="adresses">
-                        <i class="fa-solid fa-magnifying-glass-location"></i>
+                        <i class="fa-solid fa-magnifying-glass-location" id="adress_i"></i>
                         <div class="txt">
                             <h3>Adresse</h3>
                             <p>Avenue Mai-Ndombe n°38 <br><span>Commune de Kintambote</span><br><span>Kinshasa, République Démocratique du Congo</span></p>
@@ -243,9 +246,9 @@
                     </div>
                     <p>"Nous confessons Jésus-Christ comme Seigneur et Sauveur du monde"</p>
                     <div class="reseaux">
-                        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href=""><i class="fa-brands fa-youtube"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://web.facebook.com/eglisefrancophone.cbcokintambo" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@eglisefrancophonecbcokinta2824" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.whatsapp.com/channel/0029Vb6GCRhEFeXnCeoLbm0Y" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="contact">
@@ -256,15 +259,16 @@
                     </div>
                     <div class="content">
                         <i class="fa-solid fa-envelope"></i>
-                        <a href="">contact@francophonecbco.org</a>
+                        <a href="mailto:contact@francophonecbco.org">contact@francophonecbco.org</a>
                     </div>
                 </div>
                 <div class="rapid_links">
                     <h2>Liens rapides</h2>
                     <div class="rapidlink_a">
-                        <a href="">Nos Cultes</a>   
-                        <a href="">Activités</a>    
-                        <a href="">Départements</a> 
+                        <a href="{% url "accueil" %}">Accueil</a>   
+                        <a href="{% url "apropos" %}">Apropos</a>   
+                        <a href="{% url "activites" %}">Activités</a>    
+                        <a href="{% url "departements" %}">Départements</a> 
                     </div>
                 </div>
             </div>

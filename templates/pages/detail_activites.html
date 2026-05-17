@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ activite.denomination }} - Détail
+{% endblock title %}
+
+{% block style %}
+    <!-- On garde la cohérence avec tes styles globaux -->
+    <link rel="stylesheet" href="{% static 'style/base.css' %}">
+    <link rel="stylesheet" href="{% static 'style/media.css' %}">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    
+    <!-- Style spécifique à cette page de détail -->
+    <style>
+        .detail-wrapper {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn-retour {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--descr-color, #353535);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-retour:hover {
+            color: var(--primary-color, #9e8a41);
+            transform: translateX(-3px);
+        }
+
+        .detail-card {
+            background-color: var(--primary-foreground, #fff);
+            border-radius: var(--box-border-rad, 1rem);
+            box-shadow: var(--box-shadow, 0 4px 15px rgba(0,0,0,0.1));
+            overflow: hidden;
+            border: 1px solid var(--border, #e8e8e8);
+        }
+
+        .detail-banner {
+            width: 100%;
+            max-height: 450px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f0f0f0;
+        }
+
+        .detail-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .detail-content {
+            padding: 2.5rem;
+        }
+
+        .detail-content h1 {
+            font-size: 2.2rem;
+            color: var(--descr-color, #353535);
+            margin: 0 0 1rem 0;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Petite barre dorée décorative sous le titre */
+        .detail-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color, #9e8a41);
+            border-radius: var(--border-rad-circle, 50px);
+        }
+
+        .detail-meta {
+            display: flex;
+            gap: 1.5rem;
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border, #e8e8e8);
+            padding-bottom: 1rem;
+        }
+
+        .detail-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .detail-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--descr-color, #353535);
+        }
+
+        .detail-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Ajustements Tablettes et Mobiles */
+        @media (max-width: 768px) {
+            .detail-wrapper {
+                margin: 1.5rem auto;
+            }
+            .detail-content {
+                padding: 1.5rem;
+            }
+            .detail-content h1 {
+                font-size: 1.7rem;
+            }
+            .detail-banner {
+                max-height: 280px;
+            }
+        }
+    </style>
+{% endblock style %}
+
+{% block li_accueil %}
+    <!-- Ton menu de navigation reste actif et propre -->
+    <li><a href="{% url 'accueil' %}">Accueil</a></li>
+    <li><a href="{% url 'apropos' %}">A propos</a></li>
+    <li><a href="{% url 'departements' %}">Departements</a></li>
+    <li><a href="{% url 'meditations' %}">Méditation</a></li>
+    <li><a href="{% url 'activites' %}" class="Active">Activités</a></li>
+{% endblock li_accueil %}
+
+{% block section %}
+    <div class="detail-wrapper">
+        
+        <!-- Bouton Retour -->
+        <a href="{% url 'activites' %}" class="btn-retour">
+            <i class="fa-solid fa-arrow-left"></i> Retour aux activités
+        </a>
+
+        <!-- Conteneur de la fiche Activité -->
+        <article class="detail-card">
+            
+            <!-- Image de l'activité -->
+            {% if activite.photo %}
+                <div class="detail-banner">
+                    <img src="{{ activite.photo.url }}" alt="{{ activite.denomination }}">
+                </div>
+            {% endif %}
+
+            <!-- Corps des détails -->
+            <div class="detail-content">
+                <h1>{{ activite.denomination }}</h1>
+                
+                <div class="detail-meta">
+                    <span>
+                        <i class="fa-solid fa-calendar-day" style="color: var(--primary-color);"></i> 
+                        Activité Jeunesse
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-layer-group" style="color: var(--primary-color);"></i> 
+                        Événement officiel
+                    </span>
+                </div>
+
+                <div class="detail-body">
+                    <!-- Zone de texte explicative -->
+                    <p>
+                        Vous visualisez actuellement les détails de l'activité <strong>{{ activite.denomination }}</strong>. 
+                        Ce programme s'inscrit dans le cadre des activités organisées pour la jeunesse afin d'apporter un certain seuil de connaissances supplémentaires sur Dieu, la vie chrétienne, mais aussi sur les diverses facettes du quotidien.
+                    </p>
+                    <p>
+                        Rejoignez-nous lors de nos prochaines sessions pour participer activement et échanger avec nos différents intervenants.
+                    </p>
+                </div>
+                <div class="intervenants-section" style="margin-top: 3rem; border-top: 1px solid var(--border, #e8e8e8); padding-top: 2rem;">
+                    <h2 style="font-size: 1.5rem; color: var(--descr-color, #353535); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-solid fa-users" style="color: var(--primary-color, #9e8a41);"></i> Intervenants au programme
+                    </h2>
+
+                    <div class="intervenants-grid" style="display:flex; justify-content:center; align-items:center; overflow-x:scroll; gap: 1.5rem;">
+                        {% for intervention in interventions %}
+                            <div class="intervenant-card" style="text-align: center; padding: 1rem; border-radius: var(--box-border-rad, 1rem); border: 1px solid #f0f0f0; transition: transform 0.2s;">
+                                
+                                <!-- Photo en cercle -->
+                                <div class="avatar-wrapper" style="width: 50px; height: 50px; margin: 0 auto 0.8rem auto; border-radius: 50%; overflow: hidden; border: 3px solid var(--primary-color, #9e8a41); background-color: #eee;">
+                                    {% if intervention.idInter.photo %}
+                                        <img src="{{ intervention.idInter.photo.url }}" alt="{{ intervention.idInter.nom }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                    {% else %}
+                                        <!-- Avatar par défaut si pas de photo -->
+                                        <img src="{% static 'img_contents/default-avatar.png' %}" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover;">
+                                    {% endif %}
+                                </div>
+
+                                <!-- Identité -->
+                                <h3 style="font-size: 1rem; margin: 0; color: var(--descr-color, #353535); text-transform: capitalize;">
+                                    {{ intervention.idInter.nom }} {{ intervention.idInter.prenom }}
+                                </h3>
+                                <p style="font-size: 0.8rem; color: #888; margin: 0.2rem 0 0 0;">
+                                    {{ intervention.idInter.postnom }}
+                                </p>
+                            </div>
+                        {% empty %}
+                            <p style="color: #777; font-style: italic;">Aucun intervenant spécifique n'est encore enregistré pour cette activité.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+{% endblock section %}
+
+{% block section_info %}
+    <!-- Laissé vide pour respecter la structure héritée de ton activite.html -->
+{% endblock section_info %}
+
+{% block section_bottom %}
+    <!-- Laissé vide pour respecter la structure héritée de ton activite.html -->
+{% endblock section_bottom %}

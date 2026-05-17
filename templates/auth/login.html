@@ -7,39 +7,57 @@
     <link rel="stylesheet" href="{% static 'style/login.css' %}">
     <link rel="stylesheet" href="{% static 'style/base.css' %}">
     <link rel="stylesheet" href="{% static 'style/media.css' %}">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
 {% endblock style %}
 {% block js %}
     <script src="{% static 'js/index.js' %}" defer></script>
     <script src="{% static 'js/style.js' %}" defer></script>
 {% endblock js %}
-{% block btns %}
-    <div class="menu">
-        <i class="fa-solid fa-bars" id="menu"></i>
-    </div>
-{% endblock btns %}
 {% block loading %}
-
 {% endblock loading %}
-{% block li_accueil %}
-    <li><a href="">Accueil</a></li>
-    <li><a href="">A propos</a></li>
-    <li><a href="">Departements</a></li>
-    <li><a href="">Méditation</a></li>
-    <li><a href="">Activités</a></li>
-    <li><a href="">Contact</a></li>
-{% endblock li_accueil %}
-{% block section %}
-    <section class="form">
-        <h2>Connexion</h2>
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">Se connecter</button><br>
-            <p>pas de compte? <span><a href="{% url "register" %}">Créer</a></span></p>
-        </form>
-    </section>
-{% endblock section %}
 
+{% block li_accueil %}
+{% endblock li_accueil %}
+{% block btns %}
+{% endblock btns %}
+
+{% block section %}
+    <!-- Conteneur principal centré en Flexbox -->
+    <div class="login-wrapper">
+         {% if messages %}
+            <div class="msg">
+                {% for message in messages  %}
+                    <div class="msgtxt">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            </div>
+         {% endif %}
+        <section class="form-container">
+            <div class="form-header">
+                <h2>Connexion</h2>
+                <p class="form-subtitle">Heureux de vous revoir ! Connectez-vous à votre espace.</p>
+            </div>
+            
+            <form action="" method="POST" class="login-form">
+                {% csrf_token %}
+                
+                <!-- Zone des champs générés par Django -->
+                <div class="django-form-fields">
+                    {{ form.as_p }}
+                </div>
+                
+                <!-- Actionneur -->
+                <button type="submit" class="btn-submit">Se connecter</button>
+                
+                <!-- Lien de redirection -->
+                <p class="form-footer">
+                    Pas encore de compte ? <span><a href="{% url 'register' %}">Créer un compte</a></span>
+                </p>
+            </form>
+        </section>
+    </div>
+{% endblock section %}
 {% block section_info %}
 
 {% endblock section_info %}

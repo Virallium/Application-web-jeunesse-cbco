@@ -1,39 +1,212 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block title %}
-    À Propos
+    À Propos | Église Francophone CBCO Kintambo
 {% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'style/apropos.css' %}">
+    <link rel="stylesheet" href="{% static 'style/media.css' %}">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <link rel="stylesheet" href="{% static 'style/base.css' %}">
+{% endblock style %}
+
 {% block li_accueil %}
-    <li><a href="{% url "accueil" %}">Accueil</a></li>
-    <li><a href="{% url "apropos" %}" class="Active">A propos</a></li>
-    <li><a href="{% url "departements" %}" >Departements</a></li>
-    <li><a href="{% url "meditations" %}">Méditation</a></li>
-    <li><a href="{% url "activites" %}" >Activités</a></li>
-    <li><a href="{% url "contact" %}">Contact</a></li>
+    <li><a href="{% url 'accueil' %}">Accueil</a></li>
+    <li><a href="{% url 'apropos' %}" class="Active">À propos</a></li>
+    <li><a href="{% url 'departements' %}">Départements</a></li>
+    <li><a href="{% url 'meditations' %}">Méditation</a></li>
+    <li><a href="{% url 'activites' %}">Activités</a></li>
 {% endblock li_accueil %}
+
 {% block section %}
-    <div class="div">
-        <h1>À Propos de Nous</h1>
+
+<section class="hero-about">
+    <div class="container">
+        <h1 data-aos="zoom-in" data-aos-duration="1500">
+            À propos de notre église
+        </h1>
+
+        <p class="subtitle"
+           data-aos="fade-up"
+           data-aos-duration="2000">
+            Découvrez notre histoire, notre vision et les valeurs
+            qui nous animent chaque jour dans l'œuvre de Dieu.
+        </p>
     </div>
-    <div class="about-container">
-        <h2>Qui sommes-nous ?</h2>
-        <p>Notre organisation est dédiée à l'accompagnement et à la formation des jeunes dans un environnement de foi et d'épanouissement personnel.</p>
-        
-        <h3>Notre Mission</h3>
-        <p>Nous travaillons pour créer un espace où les jeunes peuvent grandir spirituellement, développer leurs compétences et contribuer positivement à la société.</p>
-        
-        <h3>Nos Valeurs</h3>
+</section>
+
+<section class="about-container">
+
+    <!-- HISTOIRE -->
+    <section class="history-section"
+             data-aos="fade-up"
+             data-aos-duration="1500">
+
+        <h2>Notre histoire</h2>
+
+        <p>
+            L'Église Francophone de Kintambo, membre de la
+            <strong>Communauté Baptiste du Congo (CBCO)</strong>,
+            a été fondée vers 1968.
+        </p>
+
+        <br>
+
+        <p>
+            Après plusieurs efforts pour établir une paroisse
+            francophone solide et spirituellement active,
+            le pasteur André Buetusanga fut nommé comme
+            premier pasteur titulaire.
+        </p>
+
+        <br>
+
+        <p>
+            Depuis sa création, l’église poursuit fidèlement
+            sa mission d’évangélisation, de formation biblique
+            et d’accompagnement spirituel des croyants.
+        </p>
+    </section>
+
+    <!-- VISION & MISSION -->
+    <div class="mission-vision-grid">
+
+        <div class="card"
+             data-aos="fade-right"
+             data-aos-duration="2000">
+
+            <h3>Notre Vision</h3>
+
+            <p>
+                Être une communauté de disciples de Jésus-Christ,
+                rayonnante de l’amour de Dieu et un phare
+                d’espérance dans la ville de Kinshasa
+                et au-delà.
+            </p>
+        </div>
+
+        <div class="card"
+             data-aos="fade-left"
+             data-aos-duration="2000">
+
+            <h3>Notre Mission</h3>
+
+            <p>
+                Adorer Dieu, proclamer l’Évangile de Jésus-Christ,
+                former des disciples et servir notre prochain
+                avec compassion en réponse à la grâce de Dieu.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- DOCTRINE -->
+    <section class="doctrine-section"
+             data-aos="fade-up"
+             data-aos-duration="2000">
+
+        <h3>Doctrine Baptiste</h3>
+
+        <p>
+            Nous adhérons aux principes fondamentaux
+            de la foi baptiste :
+        </p>
+
         <ul>
-            <li>L'Excellence</li>
-            <li>L'Intégrité</li>
-            <li>Le Service</li>
-            <li>La Communauté</li>
-            <li>La Croissance Spirituelle</li>
+            <li>Le salut par la grâce au moyen de la foi</li>
+            <li>Le baptême par immersion des croyants</li>
+            <li>Le sacerdoce universel des croyants</li>
+            <li>L'autonomie de l'église locale</li>
+            <li>La séparation de l'Église et de l'État</li>
+            <li>La liberté de conscience</li>
         </ul>
-    </div>
+
+    </section>
+
+    <!-- VALEURS -->
+    <section class="values-section">
+
+        <h2 data-aos="zoom-in" data-aos-duration="1500">
+            Nos valeurs
+        </h2>
+
+        <div class="values-grid">
+
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <strong>La Foi</strong>
+                <small>En Jésus-Christ</small>
+            </div>
+
+            <div data-aos="fade-up" data-aos-duration="1200">
+                <strong>L’Autorité</strong>
+                <small>Des Saintes Écritures</small>
+            </div>
+
+            <div data-aos="fade-up" data-aos-duration="1400">
+                <strong>L’Adoration</strong>
+                <small>En esprit et vérité</small>
+            </div>
+
+            <div data-aos="fade-up" data-aos-duration="1600">
+                <strong>La Communion</strong>
+                <small>Fraternelle</small>
+            </div>
+
+            <div data-aos="fade-up" data-aos-duration="1800">
+                <strong>La Compassion</strong>
+                <small>Envers tous</small>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="leadership-section">
+
+        <h2 data-aos="zoom-in" data-aos-duration="1500">
+            Notre leadership
+        </h2>
+
+        <p data-aos="fade-up" data-aos-duration="2000">
+            Une équipe dévouée au service spirituel
+            et administratif de l’église.
+        </p>
+
+        <div class="leader-roles">
+
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <strong>Pasteur titulaire</strong>
+                <p>Direction spirituelle</p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-duration="1200">
+                <strong>Conseil des anciens</strong>
+                <p>Encadrement & sagesse</p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-duration="1400">
+                <strong>Diacres</strong>
+                <p>Service & accompagnement</p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-duration="1600">
+                <strong>Secrétariat</strong>
+                <p>Administration</p>
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
 {% endblock section %}
-{% block section_info %}
-{% endblock section_info %}
 {% block section_bottom %}
+
 {% endblock section_bottom %}
-{% block footer %}
-{% endblock footer %}
+{% block section_info %}
+
+{% endblock section_info %}

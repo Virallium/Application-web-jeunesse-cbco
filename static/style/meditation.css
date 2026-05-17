@@ -1,0 +1,196 @@
+/* ==========================================================================
+   Page Méditations - Styles Globaux & Variables
+   ========================================================================== */
+   :root {
+    /* Palette de couleurs basée sur ton or/ocre */
+    --primary: #9e8a41;
+    --primary-dark: #7d6d33;
+    --bg-page: hsl(45, 30%, 96%);
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    
+    /* System & Shadows */
+    --radius-btn: 12px;
+    --radius-box: 16px;
+    --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.div{
+    margin-top: 5rem;
+    padding: 2rem 1rem;
+}
+.div h1{
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 2px;
+    position: relative;
+    text-align: center;
+}
+.div h1::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--primary);
+    border-radius: var(--radius-box);
+    -webkit-border-radius: var(--radius-box);
+    -moz-border-radius: var(--radius-box);
+    -ms-border-radius: var(--radius-box);
+    -o-border-radius: var(--radius-box);
+}
+/* ==========================================================================
+   Structures et Contenus
+   ========================================================================== */
+
+/* Bannière de titre (Anciennement .div) */
+.page-banner {
+    background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: var(--radius);
+    margin-bottom: 40px;
+}
+
+.page-banner h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.div_meditation_intro{
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.meditation-intro h2 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.meditation-intro h2 span {
+    color: var(--primary-color);
+    position: relative;
+}
+
+.meditation-intro p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Conteneur des cartes (Grille responsive) */
+.meditations-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Carte de méditation individuelle */
+.meditation-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* Effet au survol de la carte */
+.meditation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(108, 92, 231, 0.15);
+}
+
+/* En-tête de la carte */
+.meditation-header {
+    padding: 25px 25px 15px 25px;
+    background-color: rgba(108, 92, 231, 0.03);
+    border-bottom: 1px dashed rgba(108, 92, 231, 0.15);
+}
+
+.meditation-header h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.meditation-header .verset {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+.meditation-header .verset strong {
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    background-color: rgba(108, 92, 231, 0.1);
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+/* Corps de la carte */
+.meditation-content {
+    padding: 25px;
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    flex-grow: 1; /* Permet aux cartes d'avoir toutes la même hauteur */
+}
+
+/* Message si aucune méditation disponible */
+.no-meditation {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background-color: #f1f2f6;
+    border-radius: var(--radius);
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* ==========================================================================
+   Design Responsive (Adaptation Mobile)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .page-banner {
+        padding: 40px 15px;
+        margin-bottom: 30px;
+    }
+    
+    .page-banner h1 {
+        font-size: 2rem;
+    }
+
+    .meditation-intro h2 {
+        font-size: 1.6rem;
+    }
+
+    .meditations-container {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        gap: 20px;
+        padding: 10px;
+    }
+}

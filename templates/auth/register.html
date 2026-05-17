@@ -1,39 +1,61 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}
-    Connexion
+    Inscription
 {% endblock title %}
 {% block style %}
-    <link rel="stylesheet" href="{% static 'style/login.css' %}">
+    <link rel="stylesheet" href="{% static 'style/register.css' %}">
     <link rel="stylesheet" href="{% static 'style/base.css' %}">
     <link rel="stylesheet" href="{% static 'style/media.css' %}">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
 {% endblock style %}
 {% block js %}
     <script src="{% static 'js/index.js' %}" defer></script>
+    <script src="{% static 'js/style.js' %}" defer></script>
 {% endblock js %}
-{% block btns %}
-    <div class="menu">
-        <i class="fa-solid fa-bars" id="menu"></i>
-    </div>
-{% endblock btns %}
 {% block loading %}
-
 {% endblock loading %}
+{% block li_accueil %}
+{% endblock li_accueil %}
+{% block btns %}
+{% endblock btns %}
 {% block section %}
-    <section class="form">
-        <form action="" method="post">
-            {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">Créer</button>
-            <a href="{% url "login" %}">Se connecter</a>
-        </form>
-        
-    </section>
+    <!-- Conteneur principal centré -->
+    <div class="login-wrapper register-wrapper">
+        {% if messages %}
+            <div class="msg">
+                {% for message in messages  %}
+                    <div class="msgtxt">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            </div>
+         {% endif %}
+        <section class="form-container register-container">
+            <div class="form-header">
+                <h2>Créer un compte</h2>
+                <p class="form-subtitle">Rejoignez-nous dès aujourd'hui pour accéder à tout notre contenu.</p>
+            </div>
+            
+            <form action="" method="post" class="login-form">
+                {% csrf_token %}
+                
+                <!-- Zone des champs d'inscription générés par Django -->
+                <div class="django-form-fields">
+                    {{ form.as_p }}
+                </div>
+                
+                <!-- Actions -->
+                <button type="submit" class="btn-submit">Créer mon compte</button>
+                
+                <p class="form-footer">
+                    Déjà inscrit ? <span><a href="{% url 'login' %}">Se connecter</a></span>
+                </p>
+            </form>
+        </section>
+    </div>
 {% endblock section %}
-
 {% block section_info %}
-
 {% endblock section_info %}
 {% block section_bottom %}
-
 {% endblock section_bottom %}
