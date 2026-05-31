@@ -2,3 +2,11 @@
 {% block title %}
     Accueil
 {% endblock title %}
+{% block rapid_links %}
+    <div class="rapidlink_a">
+        <a href="{% url "accueil" %}" class="Active">Accueil</a>   
+        <a href="{% url "apropos" %}">Apropos</a>   
+        <a href="{% url "activites" %}">Activités</a>    
+        <a href="{% url "departements" %}">Départements</a> 
+    </div>
+{% endblock rapid_links %}

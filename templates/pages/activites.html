@@ -36,10 +36,9 @@
                     <p id="descr">{{activite.denomination}}</p>
                 </div>
                 <a href="{% url "detail_activites" activite.IdAct %}" class="voirplus">Voir plus</a>
-                
             </div>
             {% empty %}
-            <p>Aucune actualité n'est disponible pour l'instant, merci de patienter</p>
+            <p style="text-align:center; width:100%; display:flex; justify-content:center; align-items:center;%">Aucune actualité n'est disponible pour l'instant, merci de patienter</p>
         {% endfor %}
     </div>
 
@@ -51,3 +50,11 @@
 {% block section_bottom %}
 
 {% endblock section_bottom %}
+{% block rapid_links %}
+    <div class="rapidlink_a">
+        <a href="{% url "accueil" %}">Accueil</a>   
+        <a href="{% url "apropos" %}" >Apropos</a>   
+        <a href="{% url "activites" %}" class="Active">Activités</a>    
+        <a href="{% url "departements" %}">Départements</a> 
+    </div>
+{% endblock rapid_links %}

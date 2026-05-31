@@ -6,7 +6,6 @@
 {% endblock title %}
 
 {% block style %}
-    <!-- On garde la cohérence avec tes styles globaux -->
     <link rel="stylesheet" href="{% static 'style/base.css' %}">
     <link rel="stylesheet" href="{% static 'style/media.css' %}">
     <link rel="stylesheet" href="{% static 'style/style.css' %}">
@@ -179,7 +178,7 @@
                     </p>
                 </div>
                 <div class="intervenants-section" style="margin-top: 3rem; border-top: 1px solid var(--border, #e8e8e8); padding-top: 2rem;">
-                    <h2 style="font-size: 1.5rem; color: var(--descr-color, #353535); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <h2 style="font-size: 1.5rem; color: var(--descr-color, #353535); margin-bottom: 1.5rem; display: flex; align-items: center; gap: .5rem;text-align:center;width:100%;justify-content:center;flex-wrap:wrap;">
                         <i class="fa-solid fa-users" style="color: var(--primary-color, #9e8a41);"></i> Intervenants au programme
                     </h2>
 
@@ -216,9 +215,9 @@
 {% endblock section %}
 
 {% block section_info %}
-    <!-- Laissé vide pour respecter la structure héritée de ton activite.html -->
+    
 {% endblock section_info %}
 
 {% block section_bottom %}
-    <!-- Laissé vide pour respecter la structure héritée de ton activite.html -->
+    
 {% endblock section_bottom %}

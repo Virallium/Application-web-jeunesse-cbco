@@ -86,10 +86,12 @@
                 <li><a href="{% url "meditations" %}">Méditation</a></li>
                 <li><a href="{% url "activites" %}">Activités</a></li>
             {% endblock li_accueil %}
-            <form action="{% url "logout" %}" method="post">
-                {% csrf_token %}
-                <button class="button">Déconnexion</button>
-            </form>
+            {% block deconnect %}
+                <form action="{% url "logout" %}" method="post">
+                    {% csrf_token %}
+                    <button class="button">Déconnexion</button>
+                </form>
+            {% endblock deconnect %}
         </ul>
         <div class="btns">
             {% block btns %}
@@ -202,7 +204,7 @@
                             </div>
                         </div>
                         {% empty %}
-                        <p>Aucune méditaion n'a été ajoutée</p>
+                        <p style="margin-bottom:1rem;">Aucune méditaion n'a été ajoutée</p>
                         {% endfor %}
                     </div>
                     <a href="{% url "meditations" %}" class="voirplus">voir plus</a>
@@ -264,12 +266,14 @@
                 </div>
                 <div class="rapid_links">
                     <h2>Liens rapides</h2>
-                    <div class="rapidlink_a">
-                        <a href="{% url "accueil" %}">Accueil</a>   
-                        <a href="{% url "apropos" %}">Apropos</a>   
-                        <a href="{% url "activites" %}">Activités</a>    
-                        <a href="{% url "departements" %}">Départements</a> 
-                    </div>
+                    {% block rapid_links %}
+                        <div class="rapidlink_a">
+                            <a href="{% url "accueil" %}">Accueil</a>   
+                            <a href="{% url "apropos" %}">Apropos</a>   
+                            <a href="{% url "activites" %}">Activités</a>    
+                            <a href="{% url "departements" %}">Départements</a> 
+                        </div>
+                    {% endblock rapid_links %}
                 </div>
             </div>
             <p>&copy; Eglise Francophone de Kintambo -CBCO. Tous droits reservés.</p>
