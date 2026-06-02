@@ -257,6 +257,7 @@ swiper-slide img{
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 2.5rem;
     margin-top: 2rem;
+    place-items: center;
 }
 
 .actus_contents .box {
@@ -265,6 +266,8 @@ swiper-slide img{
     overflow: hidden;
     box-shadow: var(--shadow);
     cursor: pointer;
+    max-width: 450px;
+    width:100%;
 }
 
 .actus_contents .box:hover img{

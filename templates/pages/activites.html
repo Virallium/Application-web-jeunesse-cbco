@@ -30,7 +30,9 @@
         {% for activite in activites %}
             <div class="box">
                 <div class="img">
-                    <img src="{{activite.photo.url}}" alt="activite" width="100%">
+                    {% if activite.photo %}
+                        <img src="{{activite.photo.url}}" alt="activite" width="100%">
+                    {% endif %}
                 </div>
                 <div class="descr">
                     <p id="descr">{{activite.denomination}}</p>
