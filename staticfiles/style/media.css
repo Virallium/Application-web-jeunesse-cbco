@@ -1,48 +1,174 @@
-:root{
-    --descr-color:#353535;
-    --border-rad-circle:50%;
-    --button-border-rad:.8rem;
-    --box-border-rad:1rem;
-    --box-shadow:1px 1px 3px rgba(0,0,0,0.5);
-    --primary-color:#9e8a41;
-    --primary-txt:#fff;
-    --background: 45 30% 96%;
-    --primary-foreground: 0 0% 100%;
-    --secondary-foreground: 220 15% 15%;
-    --accent: 35 50% 75%;
-    --accent-foreground: 220 15% 15%;
-    --border: 35 20% 85%;
-    --input: 35 20% 85%;
+:root {
+    /* Couleurs principales */
+    --descr-color: #353535;
+    --primary-color: #9e8a41;
+    --primary-txt: #fff;
+    
+    /* Variables HSL (Prêtes à l'emploi) */
+    --background: hsl(45 30% 96%);
+    --primary-foreground: hsl(0 0% 100%);
+    --secondary-foreground: hsl(220 15% 15%);
+    --accent: hsl(35 50% 75%);
+    --accent-foreground: hsl(220 15% 15%);
+    --border: hsl(35 20% 85%);
+    --input: hsl(35 20% 85%);
+    
+    /* Éléments d'interface */
     --scrollTrack: #E8E8E8;
     --scrollThumb: #A1A1A1;
     --buttonHover: #E0E0E0;
+
+    /* Bordures et ombres */
+    --border-rad-circle: 50%;
+    --button-border-rad: 0.8rem;
+    --box-border-rad: 1rem;
+    --box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
-@media(max-width:1000px){
-    header{
-        align-items: start;
-    }
-    .header_active{
-        height:400px;
-    }
-    .ul_active{
-        display:block;
-        flex-direction: column;
+/* ==========================================================================
+   1. STYLE POUR ORDINATEURS (Par défaut)
+   ========================================================================== */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--border);
+    transition: height 0.4s ease; /* Préparation de l'animation mobile */
+}
+
+/* Alignement horizontal de la navigation sur PC */
+header ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: var(--descr-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+header ul li a:hover, 
+header ul li a.Active {
+    color: var(--primary-color); /* Ta couleur dorée #9e8a41 */
+}
+
+/* Zone des boutons à droite */
+.btns {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: var(--primary-txt);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--button-border-rad);
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: #857435; /* Un ton plus sombre pour le hover */
+    transform: translateY(-1px);
+}
+
+/* Le bouton burger est masqué sur grand écran */
+.menu {
+    display: none;
+}
+
+
+/* ==========================================================================
+   2. STYLE POUR TABLETTES & MOBILES (Max 1024px)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    header {
         position: relative;
-        bottom:-8rem;
+        align-items: start; /* Repris de ton code d'origine */
+        height: 70px; /* Hauteur initiale fermée */
+        overflow: hidden;
+        padding: 1rem 2rem;
     }
-    ul{
+    .header_content{
+        margin:0 0 0 0;
+    }
+    /* Activation du Header (géré par ton JS) */
+    header.header_active {
+        height: 600px; /* Ta hauteur d'origine */
+    }
+
+    /* Style du menu déroulant */
+    header ul {
         display: none;
-        bottom:-15rem;
-        transition: all .9s ease;
-        -webkit-transition: all .9s ease;
-        -moz-transition: all .9s ease;
-        -ms-transition: all .9s ease;
-        -o-transition: all .9s ease;    
+        position: relative;
+        padding-bottom:1rem ;
+        bottom: -15rem; /* Repris de ton code d'origine */
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+        transition: all 0.4s ease;
     }
-    ul li{
-        margin:1rem 0 0 0;
+
+    /* Activation du menu UL (géré par ton JS) */
+    header .ul_active {
+        display: flex;
+        bottom: -8rem; /* Repris de ton code d'origine */
     }
-    .menu{
-        display:block;
+
+    header ul li {
+        margin: 1rem 0 0 0; /* Repris de ton code d'origine */
+        list-style: none;
+    }
+
+    header ul li a {
+        display: block;
+        font-size: 1.2rem;
+    }
+
+    /* Affichage de la zone du bouton */
+    .menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    /* Style de ton icône FontAwesome #menu */
+    .menu i {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        transition: transform 0.4s ease; /* Animation de l'icône */
+    }
+
+    /* Animation de rotation de l'icône quand le menu est ouvert */
+    .header_active .menu i {
+        transform: rotate(90deg); /* Pivote joliment au clic */
+        color: var(--descr-color); /* Change optionnellement de couleur au clic */
+    }
+    .logo .bottom{
+        display: none;
+    }
+}
+/* --- Tablettes et Mobiles (Max 1000px) --- */
+
+/* --- Petits Mobiles (Max 475px) --- */
+@media (max-width: 475px) {
+    .footer_content .title .img {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+@media (max-width:300px) {
+    html{
+        overflow-x: scroll;
     }
 }

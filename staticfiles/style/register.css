@@ -1,72 +1,43 @@
-:root{
-    --descr-r:#A1A1A1;
-    --border-rad-circle:50%;
-    --button-border-rad:.8rem;
-    --box-border-rad:1rem;
-    --box-shadow:1px 1px 3px rgba(0,0,0,0.5);
-    --primary-color:#9e8a41;
-    --primary-txt:#fff;
-    --background: 45 30% 96%;
-    --primary-foreground: 0 0% 100%;
-    --secondary-foreground: 220 15% 15%;
-    --accent: 35 50% 75%;
-    --accent-foreground: 220 15% 15%;
-    --border: 35 20% 85%;
-    --input: 35 20% 85%;
-    --scrollTrack: #E8E8E8;
-    --scrollThumb: #A1A1A1;
-    --buttonHover: #E0E0E0;
+:root {
+    /* Palette de couleurs basée sur ton or/ocre */
+    --primary: #9e8a41;
+    --primary-dark: #7d6d33;
+    --bg-page: hsl(45, 30%, 96%);
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    
+    /* System & Shadows */
+    --radius-btn: 12px;
+    --radius-box: 16px;
+    --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style-type: none;
-    outline: none;
-}
-
-/* ==========================================================================
-   Page de Connexion - Style Professionnel
-   ========================================================================== */
-
-/* Centrage absolu de la carte sur l'écran */
-.login-wrapper {
+.register-wrapper {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
-    height: 100vh;
-    padding: 20px;
+    align-items: center;
+    min-height: 85vh; /* Un peu plus d'espace pour les formulaires longs */
+    padding: 40px 20px;
     background-color: hsl(var(--background, 45 30% 96%));
     font-family: "Avenir", "Avenir Next", sans-serif;
-}
-.msg{
-    background:var(--bg-card) ;
-    border-radius: var(--radius-box);
-    -webkit-border-radius: var(--radius-box);
-    -moz-border-radius: var(--radius-box);
-    -ms-border-radius: var(--radius-box);
-    -o-border-radius: var(--radius-box);
-    border-left: 3px solid var(--primary);
-  
-    margin-bottom: 1rem;
+    margin: 6rem auto;
 }
 
-/* La carte de connexion */
-.form-container {
-    margin-top: 6rem;
-    margin-bottom: 4rem;
+/* La carte d'inscription (légèrement plus large que le login pour le confort visuel) */
+.register-container {
     background-color: var(--primary-foreground, #fff);
-    max-width: 420px;
+    max-width: 480px;
     width: 100%;
-    padding: 40px 35px;
+    padding: 45px 40px;
     border-radius: var(--box-border-rad, 1rem);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), var(--box-shadow);
     border: 1px solid hsl(var(--border));
 }
 
-/* En-tête du formulaire */
+/* En-tête */
 .form-header {
     text-align: center;
     margin-bottom: 30px;
@@ -84,28 +55,28 @@
     color: var(--descr-r, #A1A1A1);
     font-size: 0.95rem;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
-/* Stylisation des champs injectés par {{ form.as_p }} */
+/* Structure des paragraphes Django {{ form.as_p }} */
 .django-form-fields p {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     position: relative;
 }
 
-/* Ciblage des labels de Django */
+/* Labels générés par Django */
 .django-form-fields p label {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 700;
     color: hsl(var(--secondary-foreground, 220 15% 15%));
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-/* Ciblage des inputs (text, password, email) générés par Django */
+/* Inputs générés par Django */
 .django-form-fields p input {
     width: 100%;
     padding: 14px 16px;
@@ -125,7 +96,37 @@
     box-shadow: 0 0 0 4px rgba(158, 138, 65, 0.15);
 }
 
-/* Bouton Soumettre */
+/* --- Gestion des textes d'aide de Django (ex: consignes mot de passe) --- */
+.django-form-fields p .helptext, 
+.django-form-fields ul {
+    font-size: 0.82rem;
+    color: var(--descr-r, #A1A1A1);
+    line-height: 1.4;
+    margin-top: 6px;
+}
+
+.django-form-fields ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+/* --- Gestion des listes d'erreurs Django (Champs invalides) --- */
+.django-form-fields .errorlist {
+    background-color: rgba(231, 76, 60, 0.08);
+    border-left: 3px solid #e74c3c;
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin: 0 0 12px 0;
+    list-style: none;
+}
+
+.django-form-fields .errorlist li {
+    font-size: 0.85rem;
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+/* Bouton de soumission */
 .btn-submit {
     display: block;
     width: 100%;
@@ -143,7 +144,7 @@
 }
 
 .btn-submit:hover {
-    background-color: #857435; /* Légèrement plus sombre pour le hover */
+    background-color: #857435; /* Un ton un peu plus sombre */
     transform: translateY(-1px);
     box-shadow: 0 6px 15px rgba(158, 138, 65, 0.3);
 }
@@ -152,12 +153,12 @@
     transform: translateY(1px);
 }
 
-/* Pied de formulaire (Pas de compte ? Créer) */
+/* Pied du formulaire */
 .form-footer {
     text-align: center;
     margin-top: 25px;
     font-size: 0.95rem;
-    color: var(--text-dark, #2d3436);
+    color: hsl(var(--secondary-foreground));
 }
 
 .form-footer span a {
@@ -172,29 +173,35 @@
     color: hsl(var(--accent));
     text-decoration: underline;
 }
-
-/* Aide ou erreurs Django (si présents sous le champ) */
-.django-form-fields .helptext, 
-.django-form-fields .errorlist {
-    font-size: 0.85rem;
-    color: #e74c3c;
-    list-style: none;
-    padding: 0;
-    margin: 4px 0 0 0;
+.msg{
+    background:var(--bg-card) ;
+    border-radius: var(--radius-box);
+    -webkit-border-radius: var(--radius-box);
+    -moz-border-radius: var(--radius-box);
+    -ms-border-radius: var(--radius-box);
+    -o-border-radius: var(--radius-box);
+    border-left: 3px solid var(--primary);
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 /* ==========================================================================
-   Media Queries (Ajustements Mobile)
+   Media Queries (Responsive Mobile)
    ========================================================================== */
 @media (max-width: 480px) {
-    .form-container {
+    .register-wrapper {
+        background-color: var(--primary-foreground, #fff); /* Fond blanc uni sur mobile */
+        padding: 20px 10px;
+    }
+
+    .register-container {
         padding: 30px 20px;
-        box-shadow: none; /* Évite les ombres lourdes sur tout petit écran */
+        box-shadow: none; /* Nettoie l'écran sur mobile */
         border: none;
         background: transparent;
     }
     
-    .login-wrapper {
-        background-color: var(--primary-foreground, #fff); /* Fond uni blanc sur mobile */
+    .form-header h2 {
+        font-size: 1.75rem;
     }
 }

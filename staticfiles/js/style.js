@@ -30,3 +30,8 @@ function login_register(){
     })
 
 }
+
+function animateOnScroll(){
+  AOS.init();
+}
+animateOnScroll()

@@ -1,0 +1,193 @@
+/* ==========================================
+   1. Bouton Actif de la Navigation
+   ========================================== */
+
+/* ==========================================
+   2. En-têtes et Sections de Titres
+   ========================================== */
+/* Section Titre Principal ("Nos Départements") */
+.div {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), var(--descr-color);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: var(--box-border-rad);
+    margin-bottom: 3rem;
+    margin-top: 5rem;
+    -webkit-border-radius: var(--box-border-rad);
+    -moz-border-radius: var(--box-border-rad);
+    -ms-border-radius: var(--box-border-rad);
+    -o-border-radius: var(--box-border-rad);
+}
+
+.div h1 {
+    color: var(--primary-txt);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Section Introduction ("Les Départements de l'organisation") */
+.div_act_jeunes {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    padding: 0 1rem;
+}
+
+.div_act_jeunes h2 {
+    font-size: 2rem;
+    color: var(--descr-color);
+    margin-bottom: 1rem;
+}
+
+.div_act_jeunes h2 span {
+    color: var(--primary-color);
+}
+
+.div_act_jeunes p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.departement-card{
+    max-width: 350px;
+    width:100%;
+}
+.departements-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    place-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    padding: 0 1rem;
+}
+
+.departement-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: var(--box-border-rad);
+    box-shadow: var(--box-shadow);
+    border-top: 4px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.departement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 1px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.departement-card h3 {
+    color: var(--descr-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.departement-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.departement-card p strong {
+    color: var(--descr-color);
+}
+
+/* ==========================================
+   4. Section : Grille des Membres
+   ========================================== */
+.membres-container {
+    background-color: var(--background);
+    padding: 3rem 2rem;
+    border-radius: var(--box-border-rad);
+    margin-top: 4rem;
+}
+
+.membres-container h2 {
+    text-align: center;
+    color: var(--descr-color);
+    margin-bottom: 2.5rem;
+    font-size: 1.8rem;
+    position: relative;
+}
+
+.membres-container h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 0.5rem auto 0 auto;
+    border-radius: 2px;
+}
+
+.membres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.membre-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: var(--box-border-rad);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.membre-card:hover {
+    transform: scale(1.02);
+}
+
+.membre-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--border-rad-circle);
+    border: 3px solid var(--border);
+    margin-bottom: 1rem;
+    background-color: #f0f0f0;
+}
+
+.membre-card h4 {
+    color: var(--descr-color);
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
+.membre-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Message si liste vide ({% empty %}) */
+.departements-container > p,
+.membres-grid > p {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    padding: 2rem;
+}
+
+/* ==========================================
+   5. Ajustements Responsives (Mobiles)
+   ========================================== */
+@media (max-width: 600px) {
+    .div h1 {
+        font-size: 1.8rem;
+    }
+    
+    .div_act_jeunes h2 {
+        font-size: 1.5rem;
+    }
+    
+    .membres-container {
+        padding: 2rem 1rem;
+    }
+}

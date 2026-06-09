@@ -42,8 +42,7 @@
             </div>
             
             <form action="" method="POST" class="login-form">
-                {% csrf_token %}
-                
+                 {% csrf_token %}
                 <!-- Zone des champs générés par Django -->
                 <div class="django-form-fields">
                     {{ form.as_p }}

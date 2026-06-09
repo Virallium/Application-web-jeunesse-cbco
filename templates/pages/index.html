@@ -1,7 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
     Accueil
 {% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'style/media.css' %}">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <link rel="stylesheet" href="{% static 'style/base.css' %}">
+{% endblock style %}
+
 {% block rapid_links %}
     <div class="rapidlink_a">
         <a href="{% url "accueil" %}" class="Active">Accueil</a>   
