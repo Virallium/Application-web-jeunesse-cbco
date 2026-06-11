@@ -2,6 +2,33 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    text-decoration:none;
+    list-style-type:none;
+}
+:root{
+    --descr-r:#A1A1A1;
+    --border-rad-circle:50%;
+    --button-border-rad:.8rem;
+    --box-border-rad:1rem;
+    --box-shadow:1px 1px 3px rgba(0,0,0,0.5);
+    --primary-color:#9e8a41;
+    --primary-txt:#fff;
+    --background: 45 30% 96%;
+    --primary-foreground: 0 0% 100%;
+    --secondary-foreground: 220 15% 15%;
+    --accent: 35 50% 75%;
+    --accent-foreground: 220 15% 15%;
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --scrollTrack: #E8E8E8;
+    --scrollThumb: #A1A1A1;
+    --buttonHover: #E0E0E0;
+    --gold: #9e8a41;
+    --dark-blue: #1e293b;
+    --light-gray: #f8fafc;
+    --text-color: #334155;
+    --white: #ffffff;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 html, body {
@@ -59,9 +86,9 @@ html, body {
     max-width: 900px;
 }
 
-.hero-about h1 {
+.hero-about .container h1 {
     font-size: clamp(3rem, 7vw, 5.5rem);
-    color: var(--white);
+    color: #fff;
     margin-bottom: 1.8rem;
     font-weight: 800;
     line-height: 1.05;
@@ -96,7 +123,7 @@ html, body {
 /* ---------- HISTORY SECTION ---------- */
 .history-section {
     position: relative;
-    background: var(--white);
+    background:var(--white-) ;
     padding: 4rem;
     border-radius: 30px;
     box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06),
@@ -242,7 +269,7 @@ html, body {
 .doctrine-section > p {
     position: relative;
     z-index: 2;
-    color: var(--text-color);
+    color: var(--);
     margin-bottom: 2rem;
     line-height: 1.9;
 }

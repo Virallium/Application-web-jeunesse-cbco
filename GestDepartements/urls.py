@@ -11,8 +11,7 @@ urlpatterns = [
     path('Activites/', views.activites, name='activites'),
     path('Activites/<int:id>/',views.detail_activites, name='detail_activites'),
     path('Activites/<slug:slug>/', views.activites, name='liste_activites'),
-    path('Interventions/<slug:slug>/', views.Interventions, name='liste_Interventions'),
-    path('Interventions/', views.Interventions, name='Interventions'),
     path('Membres/<slug:slug>/', views.Members, name='liste_Membres'),
     path('Membres/', views.Members, name='Membres'),
+    path('culte/',views.culte_jeune, name='culte_jeune')
 ]

@@ -1,13 +1,36 @@
-/* ==========================================
-   1. Bouton Actif de la Navigation
-   ========================================== */
+:root{
+    --descr-r:#A1A1A1;
+    --border-rad-circle:50%;
+    --button-border-rad:.8rem;
+    --box-border-rad:1rem;
+    --box-shadow:1px 1px 3px rgba(0,0,0,0.5);
+    --primary-color:#9e8a41;
+    --primary-txt:#fff;
+    --background: 45 30% 96%;
+    --primary-foreground: 0 0% 100%;
+    --secondary-foreground: 220 15% 15%;
+    --accent: 35 50% 75%;
+    --accent-foreground: 220 15% 15%;
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --scrollTrack: #E8E8E8;
+    --scrollThumb: #A1A1A1;
+    --buttonHover: #E0E0E0;
+    --gold: #9e8a41;
+    --dark-blue: #1e293b;
+    --light-gray: #f8fafc;
+    --text-color: #334155;
+    --white: #ffffff;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
 
 /* ==========================================
    2. En-têtes et Sections de Titres
    ========================================== */
 /* Section Titre Principal ("Nos Départements") */
 .div {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), var(--descr-color);
+    background: var(--white);
+    border-right:4px solid var(--gold);
     padding: 4rem 2rem;
     text-align: center;
     border-radius: var(--box-border-rad);
@@ -20,7 +43,7 @@
 }
 
 .div h1 {
-    color: var(--primary-txt);
+    color: var(--descr-r);
     font-size: 2.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;

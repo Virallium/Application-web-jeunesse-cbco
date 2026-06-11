@@ -1,5 +1,9 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Activites, Categorie, Departement, Evolution, Intervenant, Intervention, Membres,Participation, meditation
+from dotenv import load_dotenv
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+import os
+from .models import Activites, Categorie, Departement, Evolution,  Intervention, Membres,Participation, meditation
 def Accueil(request):
     activites=Activites.objects.all()[:10]
     versets=meditation.objects.all()[:2]
@@ -41,5 +45,37 @@ def departements(request):
 def Members(request):
     return render(request,'pages/Membres.html')
 
-def Interventions(request):
-    return render(request,'pages/Interventions.html')
+
+def culte_jeune(request):
+    CHANNEL_ID="UCfCe4LT_UWFf8HeLPOZtxcA"
+    UPLOAD_PLAYLIST_ID = "UU" + CHANNEL_ID[2:]
+    API_KEY=os.getenv('YOUTUBE_API_KEY')
+    videos=[]
+    error_message=None
+    
+    try:
+        youtube=build('youtube','v3',developerKey=API_KEY)
+        request_api=youtube.playlistItems().list(
+            playlistId=UPLOAD_PLAYLIST_ID,
+            part='snippet',
+            maxResults=30
+        )
+        response=request_api.execute()
+        for item in response.get('items',[]):
+            snippet = item.get('snippet', {})
+            video_id = snippet.get('resourceId', {}).get('videoId')
+            
+            videos.append({
+                'id': video_id,
+                'title': snippet.get('title'),
+                'thumbnail': snippet.get('thumbnails', {}).get('high', {}).get('url'),
+                'published_at': snippet.get('publishedAt'),
+            })  
+    except HttpError as e:
+        error_message="Impossible de charger les vidéos youtubes pour le moment."
+    context={
+        'videos':videos,
+        'error_message':error_message
+    }
+        
+    return render(request, 'pages/culte_jeune.html', context)

@@ -144,8 +144,8 @@
      data-aos-duration="1000">Département de la jeunesse</small>
             </div>
             <div class="links">
-                <a href=""> <span><i class="fa-solid fa-church"></i></span>Cultes des jeunes</a>
-                <a href=""><span><i class="fa-solid fa-people-arrows"></i></span>Activites</a>
+                <a href="{% url "culte_jeune" %}"> <span><i class="fa-solid fa-church"></i></span>Cultes des jeunes</a>
+                <a href="{% url "activites" %}"><span><i class="fa-solid fa-people-arrows"></i></span>Activites</a>
                 <a href="">Autres</a>
             </div>
             <div class="presentation">
@@ -276,6 +276,10 @@
                 </div>
             </div>
             <p>&copy; Eglise Francophone de Kintambo -CBCO. Tous droits reservés.</p>
+            <div class="createdby">
+                <p>Conçu par:</p>
+                <span class="created_person"><span class="miradi">Miradi Mengi de</span> <a href="https://kitokodevwork.com" target="_blank">KitokoDev Work</a></span>
+            </div>
         </footer>
     {% endblock footer %}
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-element-bundle.min.js"></script>

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Cultes jeunesse Cbco Francophone{% endblock title %}
+{% block loading %}
+{% endblock loading %}
+{% block li_accueil %}
+{% endblock li_accueil %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'style/culte_jeune.css' %}">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <link rel="stylesheet" href="{% static 'style/media.css' %}">
+    <link rel="stylesheet" href="{% static 'style/base.css' %}">
+{% endblock style %}
+{% block deconnect %}
+
+{% endblock deconnect %}
+{% block btns %}
+
+{% endblock btns %}
+{% block section %}
+    <div class="video_container">
+        <div class="div">
+            <li><a href="{% url "accueil" %}" class="retour">Retour</a></li>
+            <h1>Cultes des jeunes <span><i class="fa-solid fa-church fa-shake"></i></span></h1>
+         </div>
+        <div class="div_act_jeunes">
+            <h2>Des <span>cultes</span> pour les jeunes</h2>
+            <p>Rejoignez-nous pour des cultes dynamiques et inspirants spécialement conçus pour les jeunes de notre église. Venez vivre des moments de louange, d'enseignement biblique et de communion fraternelle adaptés à vos besoins spirituels.</p>
+        </div>
+        <div class="culte_jeune_container">
+            <p>Les cultes des jeunes ont lieu tous les dimanches à 10h00 dans la salle polyvalente de l'église. C'est un moment privilégié pour grandir dans la foi, rencontrer d'autres jeunes et vivre des expériences spirituelles enrichissantes. Nous vous invitons à venir nombreux et à inviter vos amis pour partager ensemble la joie de servir Dieu.</p>
+        </div>
+        <div class="videos_block">
+            <h1>Nos dernières vidéos YouTube</h1>
+            <div class="videos">
+                {% if error_message %}
+                   <p style="color: red; font-weight: bold;">{{ error_message }}</p>
+                {% else %}
+                    <div class="grid-videos">
+                        {% for video in videos %}
+                            <div class="carte-video  loading_skeleton">
+                                <div class="media-container" data-id="{{ video.id }}" onclick="activerLecteur(this)">
+                                    <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                                    <div class="btn-play">&#9654;</div>
+                                </div>
+                                <h3>{{ video.title }}</h3>
+                            </div>
+                        {% empty %}
+                            <p>Aucune vidéo trouvée sur cette chaîne.</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock section %}
+{% block section_info %}
+{% endblock section_info %}
+{% block section_bottom %}
+{% endblock section_bottom %}
+
+
