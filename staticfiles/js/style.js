@@ -22,14 +22,6 @@ function LoadingAnimation(){
 }
 LoadingAnimation()
 
-function login_register(){
-    const formafter_a=document.querySelector('form_after a')    
-    const formafter=document.querySelector(".form_after")
-    formafter_a.addEventListener("click",()=>{
-        formafter.classList.add('form_after_active')
-    })
-
-}
 
 function animateOnScroll(){
   AOS.init();
