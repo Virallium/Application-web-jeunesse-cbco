@@ -1,11 +1,11 @@
-:root{
-    --descr-r:#A1A1A1;
-    --border-rad-circle:50%;
-    --button-border-rad:.8rem;
-    --box-border-rad:1rem;
-    --box-shadow:1px 1px 3px rgba(0,0,0,0.5);
-    --primary-color:#9e8a41;
-    --primary-txt:#fff;
+:root {
+    --descr-r: #a1a1a1;
+    --border-rad-circle: 50%;
+    --button-border-rad: .8rem;
+    --box-border-rad: 1rem;
+    --box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    --primary-color: #9e8a41;
+    --primary-txt: #fff;
     --background: 45 30% 96%;
     --primary-foreground: 0 0% 100%;
     --secondary-foreground: 220 15% 15%;
@@ -13,11 +13,12 @@
     --accent-foreground: 220 15% 15%;
     --border: 35 20% 85%;
     --input: 35 20% 85%;
-    --scrollTrack: #E8E8E8;
-    --scrollThumb: #A1A1A1;
-    --buttonHover: #E0E0E0;
+    --scrollTrack: #e8e8e8;
+    --scrollThumb: #a1a1a1;
+    --buttonHover: #e0e0e0;
 }
-*{
+
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -26,77 +27,66 @@
     outline: none;
 }
 
-/* ==========================================================================
-   Page de Connexion - Style Professionnel
-   ========================================================================== */
-
-/* Centrage absolu de la carte sur l'écran */
 .login-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
-    padding: 20px;
+    min-height: 100dvh;
+    padding: clamp(16px, 4vw, 32px);
     background-color: hsl(var(--background, 45 30% 96%));
     font-family: "Avenir", "Avenir Next", sans-serif;
 }
-.msg{
-    background:var(--bg-card) ;
-    border-radius: var(--radius-box);
-    -webkit-border-radius: var(--radius-box);
-    -moz-border-radius: var(--radius-box);
-    -ms-border-radius: var(--radius-box);
-    -o-border-radius: var(--radius-box);
-    border-left: 3px solid var(--primary);
-  
+
+.msg {
+    width: min(100%, 420px);
+    background: var(--primary-foreground, #fff);
+    border-radius: var(--box-border-rad, 1rem);
+    border-left: 3px solid var(--primary-color);
+    padding: 0.9rem 1rem;
     margin-bottom: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* La carte de connexion */
 .form-container {
-    margin-top: 6rem;
-    margin-bottom: 4rem;
+    margin: 0;
     background-color: var(--primary-foreground, #fff);
     max-width: 420px;
-    width: 100%;
-    padding: 40px 35px;
+    width: min(100%, 420px);
+    padding: clamp(28px, 4vw, 40px);
     border-radius: var(--box-border-rad, 1rem);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), var(--box-shadow);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08), var(--box-shadow);
     border: 1px solid hsl(var(--border));
 }
 
-/* En-tête du formulaire */
 .form-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
 .form-header h2 {
     color: var(--primary-color);
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 2.2vw, 2rem);
     font-weight: 800;
     margin: 0 0 10px 0;
     letter-spacing: -0.5px;
 }
 
 .form-subtitle {
-    color: var(--descr-r, #A1A1A1);
+    color: var(--descr-r, #a1a1a1);
     font-size: 0.95rem;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
-/* Stylisation des champs injectés par {{ form.as_p }} */
 .django-form-fields p {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     position: relative;
 }
 
-/* Ciblage des labels de Django */
 .django-form-fields p label {
     font-size: 0.9rem;
     font-weight: 700;
@@ -105,7 +95,6 @@
     letter-spacing: 0.5px;
 }
 
-/* Ciblage des inputs (text, password, email) générés par Django */
 .django-form-fields p input {
     width: 100%;
     padding: 14px 16px;
@@ -118,18 +107,20 @@
     box-sizing: border-box;
 }
 
-/* Effet au clic/focus sur un champ */
+.django-form-fields p input::placeholder {
+    color: #94a3b8;
+}
+
 .django-form-fields p input:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 4px rgba(158, 138, 65, 0.15);
 }
 
-/* Bouton Soumettre */
 .btn-submit {
     display: block;
     width: 100%;
-    padding: 14px;
+    padding: 0.95rem 1rem;
     background-color: var(--primary-color);
     color: var(--primary-txt, #fff);
     border: none;
@@ -138,12 +129,12 @@
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 25px;
+    margin-top: 22px;
     box-shadow: 0 4px 12px rgba(158, 138, 65, 0.2);
 }
 
 .btn-submit:hover {
-    background-color: #857435; /* Légèrement plus sombre pour le hover */
+    background-color: #857435;
     transform: translateY(-1px);
     box-shadow: 0 6px 15px rgba(158, 138, 65, 0.3);
 }
@@ -152,11 +143,11 @@
     transform: translateY(1px);
 }
 
-/* Pied de formulaire (Pas de compte ? Créer) */
 .form-footer {
     text-align: center;
-    margin-top: 25px;
+    margin-top: 20px;
     font-size: 0.95rem;
+    line-height: 1.5;
     color: var(--text-dark, #2d3436);
 }
 
@@ -173,8 +164,7 @@
     text-decoration: underline;
 }
 
-/* Aide ou erreurs Django (si présents sous le champ) */
-.django-form-fields .helptext, 
+.django-form-fields .helptext,
 .django-form-fields .errorlist {
     font-size: 0.85rem;
     color: #e74c3c;
@@ -183,18 +173,67 @@
     margin: 4px 0 0 0;
 }
 
-/* ==========================================================================
-   Media Queries (Ajustements Mobile)
-   ========================================================================== */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    .login-wrapper {
+        padding: 24px 16px;
+    }
+
     .form-container {
-        padding: 30px 20px;
-        box-shadow: none; /* Évite les ombres lourdes sur tout petit écran */
+        padding: 28px 24px;
+    }
+
+    .form-header {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-wrapper {
+        align-items: stretch;
+        background-color: var(--primary-foreground, #fff);
+        padding: 16px 12px;
+    }
+
+    .msg {
+        width: 100%;
+    }
+
+    .form-container {
+        padding: 24px 16px;
+        box-shadow: none;
         border: none;
         background: transparent;
     }
-    
-    .login-wrapper {
-        background-color: var(--primary-foreground, #fff); /* Fond uni blanc sur mobile */
+
+    .form-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .form-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .django-form-fields p {
+        margin-bottom: 16px;
+    }
+
+    .django-form-fields p input {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+
+    .btn-submit {
+        padding: 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .form-footer {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .form-container {
+        padding: 20px 12px;
     }
 }
