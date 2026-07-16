@@ -30,14 +30,24 @@
         {% for activite in activites %}
             <div class="box">
                 <div class="img">
-                    {% if activite.photo %}
-                        <img src="{{activite.photo.url}}" alt="activite" width="100%">
-                    {% endif %}
+                    <img
+                        src="{% if activite.photo %}{{ activite.photo.url }}{% else %}{% static 'img_contents/affiche1.jpg' %}{% endif %}"
+                        alt="{{ activite.denomination }}"
+                        loading="lazy"
+                        onerror="this.onerror=null;this.src='{% static 'img_contents/affiche1.jpg' %}';"
+                    >
                 </div>
                 <div class="descr">
                     <p id="descr">{{activite.denomination}}</p>
                 </div>
                 <a href="{% url "detail_activites" activite.IdAct %}" class="voirplus">Voir plus</a>
+                {% if activite.description %}
+                    <div class="detail">
+                        <p>{{activite.description}}</p>
+                    </div>
+                    {% else %}
+                    <p>Aucune description n'est disponible pour cette activité.</p>
+                {% endif %}
             </div>
             {% empty %}
             <p style="text-align:center; width:100%; display:flex; justify-content:center; align-items:center;%">Aucune actualité n'est disponible pour l'instant, merci de patienter</p>

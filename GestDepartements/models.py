@@ -46,6 +46,7 @@ class Activites(models.Model):
     IdAct=models.AutoField(primary_key=True)
     denomination=models.CharField(verbose_name="Dénomination Activité", max_length=50)
     photo=models.ImageField(upload_to="photos/Activites", height_field=None, width_field=None, max_length=None)
+    description=models.TextField(verbose_name="Description Activité", null=True)
     slug = models.SlugField(max_length=100, unique=True, blank=True, null=True)
     def __str__(self):
         return self.denomination
