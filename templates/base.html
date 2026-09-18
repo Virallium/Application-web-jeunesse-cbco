@@ -87,10 +87,15 @@
                 <li><a href="{% url "activites" %}">Activités</a></li>
             {% endblock li_accueil %}
             {% block deconnect %}
-                <form action="{% url "logout" %}" method="post">
-                    {% csrf_token %}
-                    <button class="button">Déconnexion</button>
-                </form>
+                {% if request.user.is_authenticated %}
+                    <form action="{% url "logout" %}" method="post">
+                        {% csrf_token %}
+                        <button class="button">Déconnexion</button>
+                    </form>
+                {% else %}
+                <a href="{% url "login" %}">Se connecter</a>
+                {% endif %}
+                
             {% endblock deconnect %}
         </ul>
         <div class="btns">

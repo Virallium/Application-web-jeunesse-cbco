@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from dotenv import load_dotenv
+from django.contrib.auth.decorators import login_required
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 import os
 from .models import Activites, Categorie, Departement, Evolution,  Intervention, Membres,Participation, meditation
+
 def Accueil(request):
     activites=Activites.objects.all()[:10]
     versets=meditation.objects.all()[:2]
@@ -25,7 +26,6 @@ def activites(request):
         'activites':activities,
 
     })
-
 def detail_activites(request,id):
     activities=get_object_or_404(Activites, IdAct=id)
     interventions=Intervention.objects.filter(idAct=activities).select_related('idInter')
@@ -33,6 +33,7 @@ def detail_activites(request,id):
         'activite':activities,
         'interventions':interventions
     })
+
 def departements(request):
     departements=Departement.objects.all()
     membres=Membres.objects.all()
@@ -45,7 +46,7 @@ def departements(request):
 def Members(request):
     return render(request,'pages/Membres.html')
 
-
+@login_required
 def culte_jeune(request):
     CHANNEL_ID="UCfCe4LT_UWFf8HeLPOZtxcA"
     UPLOAD_PLAYLIST_ID = "UU" + CHANNEL_ID[2:]

@@ -1,8 +1,7 @@
 from django.urls import path, include
 from . import views
 urlpatterns = [
-    path('', include('Authentification.urls')),
-    path('Accueil/',views.Accueil, name="accueil"),
+    path('',views.Accueil, name="accueil"),
     path('Apropos/', views.Apropos, name='apropos'),
     path('Departements/<slug:slug>/', views.departements, name='liste_departements'),
     path('Departements/', views.departements, name='departements'),
